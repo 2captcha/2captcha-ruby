@@ -56,13 +56,13 @@ To use the api2captcha gem, you'll need to import the module and create a Client
 ```ruby
 require 'api-2captcha'
 
-client =  Api2Captcha.new(api_key: "YOUR_API_KEY")
+client =  Api2Captcha.new("YOUR_API_KEY")
 ```
 
 There are a few options that can be configured using the Client instance:
 
 ```ruby
-client.apy_key = "YOUR_API_KEY"
+client.api_key = "YOUR_API_KEY"
 ```
 
 ### Client instance options
