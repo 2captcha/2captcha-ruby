@@ -31,10 +31,16 @@ class Api2Captcha::Client
     params["key"] = @api_key
     params["soft_id"] = @soft_id
     params["json"] = 1
-
+    if @callback
+      params["pingback"] = @callback
+      return_id = true
+    else
+      return_id
+    end
     complete_params = get_params(params)
     captcha_id = send_request(complete_params)
-    return_id ? get_result(captcha_id) : captcha_id
+
+    return_id ? captcha_id : get_result(captcha_id)
   end
 
   def send(*args)
@@ -184,7 +190,6 @@ class Api2Captcha::Client
     req.content_type = 'application/json'
     req.body = params.to_json
     captcha_id = get_captcha_id(make_request(uri, req))
-    handle_response(captcha_id)
   end
 
   def get_params(params)
