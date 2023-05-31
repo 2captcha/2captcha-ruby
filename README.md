@@ -26,7 +26,7 @@ A Ruby client for the 2Captcha API.
   - [GeeTest V4](#geetest-v4)
   - [Audio](#audio)
 - [Other methods](#other-methods)
-  - [send / getResult](#send--getresult)
+  - [send / get_result](#send--getresult)
   - [balance](#balance)
   - [report](#report)
   - [Error handling](#error-handling)
@@ -75,7 +75,7 @@ client.api_key = "YOUR_API_KEY"
 |polling_interval|10|Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended|
 
 >  **IMPORTANT:** once `callback` is defined for `Client` instance, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
-To get the answer manually use [getResult method](#send--getresult)
+To get the answer manually use [get_result method](#send--getresult)
 
 ## Solve captcha
 When you submit any image-based captcha use can provide additional options to help 2captcha workers to solve it properly.
@@ -93,7 +93,8 @@ When you submit any image-based captcha use can provide additional options to he
 | hint_image       | -             | an image with hint shown to workers with the captcha, translated into instructionsimg API parameter                                               |
 | hint_text      | -             | hint or task text shown to workers with the captcha                                                |
 
-Below you can find basic examples for every captcha type. Check out [examples directory] to find more examples with all available options.
+Below you can find basic examples for every captcha type, check out the code below.
+
 
 ### Normal Captcha
 To bypass a normal captcha (distorted text on image) use the following method. This method also can be used to recognize any text on the image.
@@ -290,7 +291,7 @@ result = client.audio({
 
 ## Other methods
 
-### send / getResult
+### send / get_result
 These methods can be used for manual captcha submission and answer polling.
 ```ruby
 
