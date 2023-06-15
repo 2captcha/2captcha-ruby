@@ -26,6 +26,7 @@ A Ruby client for the 2Captcha API.
   - [Lemin Cropped Captcha](#lemin-cropped-captcha)
   - [GeeTest V4](#geetest-v4)
   - [Audio](#audio)
+  - [Yandex](#yandex)
 - [Other methods](#other-methods)
   - [send / get_result](#send--getresult)
   - [balance](#balance)
@@ -136,7 +137,7 @@ result = client.recaptcha_v3({
   score: 0.3,
   action: 'verify'
 })
-``
+```
 
 ### reCAPTCHA Enterprise
 reCAPTCHA Enterprise can be used as reCAPTCHA V2 and reCAPTCHA V3. Below is a usage example for both versions.
