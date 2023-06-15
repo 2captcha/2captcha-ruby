@@ -31,16 +31,16 @@ class Api2Captcha::Client
     params["key"] = @api_key
     params["soft_id"] = @soft_id
     params["json"] = 1
+
     if @callback
       params["pingback"] = @callback
       return_id = true
-    else
-      return_id
     end
+
     complete_params = get_params(params)
     captcha_id = send_request(complete_params)
-
-    return_id ? captcha_id : get_result(captcha_id)
+    return captcha_id if return_id
+    get_result(captcha_id)
   end
 
   def send(*args)
@@ -132,7 +132,7 @@ class Api2Captcha::Client
 
   def grid(params)
     params["recaptcha"] = 1
-    solve("capy", params)
+    solve("post", params)
   end
 
   def canvas(params)
@@ -176,6 +176,10 @@ class Api2Captcha::Client
       "lang" => params[:lang]
     )
     solve("audio", params)
+  end
+
+  def yandex(params)
+    solve("yandex", params)
   end
 
   private

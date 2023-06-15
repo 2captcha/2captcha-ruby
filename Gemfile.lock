@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-2captcha (0.1.0)
+    ruby-2captcha (1.0.2)
 
 GEM
   remote: https://rubygems.org/
