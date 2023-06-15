@@ -10,8 +10,9 @@ A Ruby client for the 2Captcha API.
 - [Solve captcha](#solve-captcha)
   - [Normal Captcha](#normal-captcha)
   - [Text](#text-captcha)
-  - [ReCaptcha v2](#recaptcha-v2)
-  - [ReCaptcha v3](#recaptcha-v3)
+  - [reCAPTCHA v2](#recaptcha-v2)
+  - [reCAPTCHA v3](#recaptcha-v3)
+  - [reCAPTCHA Enterprise](#recaptcha-enterprise)
   - [GeeTest](#geetest)
   - [hCaptcha](#hcaptcha)
   - [KeyCaptcha](#keycaptcha)
@@ -71,7 +72,7 @@ client.api_key = "YOUR_API_KEY"
 |---|---|---|
 |soft_id|-|your software ID obtained after publishing in [2captcha sofware catalog]|
 |callback|-|URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account|
-|default_timeout|120|Timeout in seconds for all captcha types except ReCaptcha. Defines how long the module tries to get the answer from `res.php` API endpoint|
+|default_timeout|120|Timeout in seconds for all captcha types except reCAPTCHA. Defines how long the module tries to get the answer from `res.php` API endpoint|
 |polling_interval|10|Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended|
 
 >  **IMPORTANT:** once `callback` is defined for `Client` instance, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
@@ -115,8 +116,8 @@ result = client.text({
 })
 ```
 
-### ReCaptcha v2
-Use this method to solve ReCaptcha V2 and obtain a token to bypass the protection.
+### reCAPTCHA v2
+Use this method to solve reCAPTCHA V2 and obtain a token to bypass the protection.
 ```ruby
 result = client.recaptcha_v2({
   googlekey: '6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-',
@@ -125,8 +126,8 @@ result = client.recaptcha_v2({
 })
 ```
 
-### ReCaptcha v3
-This method provides ReCaptcha V3 solver and returns a token.
+### reCAPTCHA v3
+This method provides reCAPTCHA V3 solver and returns a token.
 ```ruby
 result = client.recaptcha_v3({
   googlekey: '6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-',
@@ -134,6 +135,28 @@ result = client.recaptcha_v3({
   version: 'v3',
   score: 0.3,
   action: 'verify'
+})
+``
+
+### reCAPTCHA Enterprise
+reCAPTCHA Enterprise can be used as reCAPTCHA V2 and reCAPTCHA V3. Below is a usage example for both versions.
+
+```ruby
+# reCAPTCHA V2
+result = client.recaptcha_v2({
+  googlekey: '6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-',
+  pageurl: 'https://mysite.com/page/with/recaptcha_v2_enterprise',
+  enterprise: 1
+})
+
+# reCAPTCHA V3
+result = client.recaptcha_v3({
+  googlekey: '6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-',
+  pageurl: 'https://mysite.com/page/with/recaptcha_v3_enterprise',
+  version: 'v3',
+  score: 0.3,
+  action: 'verify',
+  enterprise: 1,
 })
 ```
 
@@ -190,7 +213,7 @@ result = client.capy({
 ```
 
 ### Grid
-Grid method is originally called Old ReCaptcha V2 method. The method can be used to bypass any type of captcha where you can apply a grid on image and need to click specific grid boxes. Returns numbers of boxes.
+Grid method is originally called Old reCAPTCHA V2 method. The method can be used to bypass any type of captcha where you can apply a grid on image and need to click specific grid boxes. Returns numbers of boxes.
 ```ruby
 result = client.grid({
   image: 'path/to/captcha.jpg',
@@ -286,6 +309,15 @@ This method can be used to solve a audio captcha
 result = client.audio({
   audio: 'path/to/audio.jpg',
   lang: "en"
+})
+```
+
+### Yandex
+Use this method to solve Yandex and obtain a token to bypass the protection.
+```ruby
+result = client.yandex({
+  sitekey: 'Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV',
+  url: "https://rutube.ru"
 })
 ```
 
