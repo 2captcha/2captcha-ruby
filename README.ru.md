@@ -56,7 +56,8 @@ gem install ruby-2captcha
 Экземпляр класса Api2Captcha можно создать следующим образом:
 
 ```ruby
-$LOAD_PATH.unshift(File.expand_path('~/.gem/ruby/3.0.0/gems/ruby_2captcha-1.0.3/lib'))
+$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..', 'gems', 'ruby_2captcha-1.0.3', 'lib')))
+
 require 'api_2captcha'
 
 client =  Api2Captcha.new("YOUR_API_KEY")
