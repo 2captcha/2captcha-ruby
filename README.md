@@ -56,7 +56,7 @@ $ gem install ruby-2captcha
 To use the api2captcha gem, you'll need to import the module and create a Client instance. Here's an example:
 
 ```ruby
-$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..', 'gems', 'ruby_2captcha-1.0.3', 'lib')))
+$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..', 'gems', 'ruby_2captcha-1.0.4', 'lib')))
 require 'api_2captcha'
 
 client =  Api2Captcha.new("YOUR_API_KEY")
