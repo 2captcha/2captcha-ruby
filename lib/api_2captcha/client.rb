@@ -73,13 +73,13 @@ class Api2Captcha::Client
         elsif response_json["request"] == "CAPCHA_NOT_READY"
           sleep(polling_interval)
         else
-          raise ApiException, "API Error: #{response_json["error_text"]}"
+          raise Api2Captcha::ApiException, "API Error: #{response_json["request"]}"
         end
       else
-        raise NetworkException, "Network Error: #{response.code.to_i}"
+        raise Api2Captcha::NetworkException, "Network Error: #{response.code.to_i}"
       end
 
-      raise TimeoutException, "Timeout" if Time.now - start_time > default_timeout
+      raise Api2Captcha::TimeoutException, "Timeout" if Time.now - start_time > default_timeout
     end
   end
 
@@ -244,10 +244,10 @@ class Api2Captcha::Client
       if response_json["status"] == 1
         response_json["request"]
       else
-        raise ApiException, "API Error: #{response.body.strip}"
+        raise Api2Captcha::ApiException, "API Error: #{response.body.strip}"
       end
     else
-      raise NetworkException, "Network Error: #{response.code.to_i}"
+      raise Api2Captcha::NetworkException, "Network Error: #{response.code.to_i}"
     end
   rescue JSON::ParserError => e
     raise "Failed to parse response: #{e.message}"
@@ -275,7 +275,7 @@ class Api2Captcha::Client
     when Net::HTTPSuccess
       return JSON.parse(response.body)
     else
-      raise NetworkException, "Network Error: #{response.code.to_i}"
+      raise Api2Captcha::NetworkException, "Network Error: #{response.code.to_i}"
     end
   end
 end
