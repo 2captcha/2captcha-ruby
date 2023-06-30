@@ -5,7 +5,7 @@ require 'json'
 require 'base64'
 require 'open-uri'
 
-class Api2Captcha::Client
+class Client
   DEFAULT_DOMAIN = "2captcha.com"
   BASE_URL_FORMAT = "https://%s"
 
