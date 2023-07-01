@@ -34,7 +34,7 @@ A Ruby client for the 2Captcha API.
   - [Error handling](#error-handling)
 
 ## Installation
-
+Please note that Ruby version 3.0.0 or higher is required to use this gem.
 Add this line to your application's Gemfile:
 
 ```bash
