@@ -9,5 +9,8 @@ Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
 
+Layout/IndentationWidth:
+  AllowedPatterns: ['^\s*module']
+
 Layout/LineLength:
   Max: 120
