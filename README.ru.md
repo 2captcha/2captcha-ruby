@@ -32,7 +32,6 @@ Ruby-клиент для API 2Captcha.
   - [Обработка ошибок](#error-handling)
 
 ## Установка
-
 Автоматическая установка гема с помощью Bundler. Добавьте следующую строку в ваш Gemfile:
 ```ruby
 gem 'ruby-2captcha'
@@ -54,7 +53,10 @@ gem install ruby-2captcha
 Описание всех необходимых параметров для настройки установленного гема.
 
 Экземпляр класса Api2Captcha можно создать следующим образом:
+
 ```ruby
+require 'api_2captcha'
+
 client =  Api2Captcha.new("YOUR_API_KEY")
 ```
 

@@ -34,7 +34,6 @@ A Ruby client for the 2Captcha API.
   - [Error handling](#error-handling)
 
 ## Installation
-
 Add this line to your application's Gemfile:
 
 ```bash
@@ -56,7 +55,7 @@ $ gem install ruby-2captcha
 To use the api2captcha gem, you'll need to import the module and create a Client instance. Here's an example:
 
 ```ruby
-require 'api-2captcha'
+require 'api_2captcha'
 
 client =  Api2Captcha.new("YOUR_API_KEY")
 ```
