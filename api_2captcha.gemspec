@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Ruby package for easy integration with the API of 2captcha captcha solving service to bypass recaptcha, hcaptcha, funcaptcha, geetest and solve any other captchas."
   spec.homepage = "https://2captcha.com/"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.0.0"
+  spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/2captcha/2captcha-ruby"
