@@ -245,7 +245,7 @@ module Api2Captcha
         if response_json["status"] == 1
           response_json["request"]
         else
-          raise ApiException, "API Error: #{response_json["error_text"]}"
+          raise ApiException, "API Error: #{response_json["request"]}"
         end
       else
         raise NetworkException, "Network Error: #{response.code.to_i}"
