@@ -27,7 +27,8 @@ module Api2Captcha
       @domain = DEFAULT_DOMAIN
     end
 
-    def solve(method, params = {}, file_path = nil, return_id: false)
+    def solve(method, file_path = nil, return_id: false, **params)
+      params = params.transform_keys(&:to_s)
       params["method"] = method
       params["key"] = @api_key
       params["soft_id"] = @soft_id
@@ -70,7 +71,8 @@ module Api2Captcha
         when Net::HTTPSuccess
           response_json = JSON.parse(response.body)
           if response_json["status"] == 1
-            return response_json["request"]
+            response_json["captcha_id"] = captcha_id
+            return response_json
           elsif response_json["request"] == "CAPCHA_NOT_READY"
             sleep(polling_interval)
           else
@@ -169,12 +171,12 @@ module Api2Captcha
     end
 
     def audio(params)
-      audio = params.delete(:audio)
+      audio = params.delete("audio")
       audio_content = File.file?(audio) ? File.binread(audio) : audio
 
       params = params.merge(
         "body" => Base64.strict_encode64(audio_content),
-        "lang" => params[:lang]
+        "lang" => params["lang"]
       )
       solve("audio", params)
     end
@@ -198,12 +200,12 @@ module Api2Captcha
     end
 
     def get_params(params)
-      params[:image].nil? ? params : file_params(params)
+      params["image"].nil? ? params : file_params(params)
     end
 
     def file_params(params)
-      image = params.delete(:image)
-      hint_image = params.delete(:hint_image)
+      image = params.delete("image")
+      hint_image = params.delete("hint_image")
 
       image_content = get_image_content(image)
       hint_image_content = get_image_content(hint_image) if hint_image
