@@ -273,11 +273,16 @@ result = client.lemin({
 ```
 
 ### Cloudflare Turnstile
-Use this method to solve Cloudflare Turnstile. Returns JSON with the token.
+Use this method to solve Cloudflare Turnstile. Returns JSON with the token and User-Agent.
 ```ruby
 result = client.turnstile({
-  sitekey: '0x1AAAAAAAAkg0s2VIOD34y5',
-  pageurl: 'http://mysite.com/'
+  sitekey: "0x0AAAAAAADnPIDROzbs0Aaj",
+  data: "7fab0000b0e0ff00",
+  pagedata: "3gAFo2...0ME1UVT0=",
+  pageurl: "https://2captcha.com/",
+  action: "managed",
+  userAgent: "Mozilla/5.0 ... Chrome/116.0.0.0 Safari/537.36",
+  json: 1
 })
 ```
 
