@@ -27,7 +27,7 @@ module Api2Captcha
       @domain = DEFAULT_DOMAIN
     end
 
-    def solve(method, file_path = nil, return_id: false, **params)
+    def solve(method, return_id: false, **params)
       params = params.transform_keys(&:to_s)
       params["method"] = method
       params["key"] = @api_key
