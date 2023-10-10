@@ -193,6 +193,10 @@ module Api2Captcha
       solve("datadome", params)
     end
 
+    def mt_captcha(params)
+      solve("mt_captcha", params)
+    end
+
     private
 
     def base_url

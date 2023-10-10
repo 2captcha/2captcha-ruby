@@ -29,6 +29,7 @@ A Ruby client for the 2Captcha API.
   - [Yandex](#yandex)
   - [CyberSiARA](#cyber_siara)
   - [DataDome](#data-dome)
+  - [MTCaptcha](#mtcaptcha)
 - [Other methods](#other-methods)
   - [send / get_result](#send--getresult)
   - [balance](#balance)
@@ -346,6 +347,15 @@ result = client.data_dome({
   captcha_url: "https://test.com/captcha/",
   proxytype: "http",
   proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
+```
+
+### MTCaptcha
+Use this method to solve MTCaptcha and obtain a token to bypass the protection.
+```ruby
+result = client.mt_captcha({
+  pageurl: "https://service.mtcaptcha.com/mtcv1/demo/index.html",
+  sitekey: "MTPublic-DemoKey9M"
 })
 ```
 

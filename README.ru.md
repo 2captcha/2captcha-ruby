@@ -27,6 +27,7 @@ Ruby-клиент для API 2Captcha.
   - [Аудио](#audio)
   - [CyberSiARA](#cyber_siara)
   - [DataDome](#data-dome)
+  - [MTCaptcha](#mtcaptcha)
 - [Другие методы](#other-methods)
   - [send / get_result](#send--getresult)
   - [balance](#balance)
@@ -303,6 +304,15 @@ result = client.data_dome({
   captcha_url: "https://test.com/captcha/",
   proxytype: "http",
   proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
+```
+
+### MTCaptcha
+Метод решения MTCaptcha. Он возвращает токен для обхода капчи.
+```ruby
+result = client.mt_captcha({
+  pageurl: "https://service.mtcaptcha.com/mtcv1/demo/index.html",
+  sitekey: "MTPublic-DemoKey9M"
 })
 ```
 
