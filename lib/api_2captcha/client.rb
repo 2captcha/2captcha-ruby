@@ -189,6 +189,10 @@ module Api2Captcha
       solve("cybersiara", params)
     end
 
+    def data_dome(params)
+      solve("datadome", params)
+    end
+
     private
 
     def base_url

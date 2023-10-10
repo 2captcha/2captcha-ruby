@@ -28,6 +28,7 @@ A Ruby client for the 2Captcha API.
   - [Audio](#audio)
   - [Yandex](#yandex)
   - [CyberSiARA](#cyber_siara)
+  - [DataDome](#data-dome)
 - [Other methods](#other-methods)
   - [send / get_result](#send--getresult)
   - [balance](#balance)
@@ -333,6 +334,18 @@ Use this method to solve CyberSiARA and obtain a token to bypass the protection.
 result = client.cyber_siara({
   pageurl: "https://test.com",
   master_url_id: "12333-3123123"
+})
+```
+
+### DataDome
+Use this method to solve DataDome and obtain a token to bypass the protection.
+To solve the DataDome captcha, you must use a proxy.
+```ruby
+result = client.data_dome({
+  pageurl: "https://test.com",
+  captcha_url: "https://test.com/captcha/",
+  proxytype: "http",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
 })
 ```
 

@@ -26,6 +26,7 @@ Ruby-клиент для API 2Captcha.
   - [GeeTest V4](#geetest-v4)
   - [Аудио](#audio)
   - [CyberSiARA](#cyber_siara)
+  - [DataDome](#data-dome)
 - [Другие методы](#other-methods)
   - [send / get_result](#send--getresult)
   - [balance](#balance)
@@ -290,6 +291,18 @@ result = client.audio({
 result = client.cyber_siara({
   pageurl: "https://test.com",
   master_url_id: "12333-3123123"
+})
+```
+
+### DataDome
+Метод решения DataDome вернет токен для обхода капчи.
+Чтобы решить капчу DataDome вы должны обязательно использовать прокси.
+```ruby
+result = client.data_dome({
+  pageurl: "https://test.com",
+  captcha_url: "https://test.com/captcha/",
+  proxytype: "http",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
 })
 ```
 
