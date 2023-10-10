@@ -27,6 +27,9 @@ A Ruby client for the 2Captcha API.
   - [GeeTest V4](#geetest-v4)
   - [Audio](#audio)
   - [Yandex](#yandex)
+  - [CyberSiARA](#cyber_siara)
+  - [DataDome](#data-dome)
+  - [MTCaptcha](#mtcaptcha)
 - [Other methods](#other-methods)
   - [send / get_result](#send--getresult)
   - [balance](#balance)
@@ -323,6 +326,36 @@ Use this method to solve Yandex and obtain a token to bypass the protection.
 result = client.yandex({
   sitekey: 'Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV',
   url: "https://rutube.ru"
+})
+```
+
+### CyberSiARA
+Use this method to solve CyberSiARA and obtain a token to bypass the protection.
+```ruby
+result = client.cyber_siara({
+  pageurl: "https://test.com",
+  master_url_id: "12333-3123123"
+})
+```
+
+### DataDome
+Use this method to solve DataDome and obtain a token to bypass the protection.
+To solve the DataDome captcha, you must use a proxy.
+```ruby
+result = client.data_dome({
+  pageurl: "https://test.com",
+  captcha_url: "https://test.com/captcha/",
+  proxytype: "http",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
+```
+
+### MTCaptcha
+Use this method to solve MTCaptcha and obtain a token to bypass the protection.
+```ruby
+result = client.mt_captcha({
+  pageurl: "https://service.mtcaptcha.com/mtcv1/demo/index.html",
+  sitekey: "MTPublic-DemoKey9M"
 })
 ```
 

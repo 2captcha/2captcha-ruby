@@ -185,6 +185,18 @@ module Api2Captcha
       solve("yandex", params)
     end
 
+    def cyber_siara(params)
+      solve("cybersiara", params)
+    end
+
+    def data_dome(params)
+      solve("datadome", params)
+    end
+
+    def mt_captcha(params)
+      solve("mt_captcha", params)
+    end
+
     private
 
     def base_url
