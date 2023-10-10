@@ -25,6 +25,7 @@ Ruby-клиент для API 2Captcha.
   - [Lemin Cropped Captcha](#lemin-cropped-captcha)
   - [GeeTest V4](#geetest-v4)
   - [Аудио](#audio)
+  - [CyberSiARA](#cyber_siara)
 - [Другие методы](#other-methods)
   - [send / get_result](#send--getresult)
   - [balance](#balance)
@@ -280,6 +281,15 @@ result = client.geetest_v4({
 result = client.audio({
   audio: 'path/to/audio.jpg',
   lang: "en"
+})
+```
+
+### CyberSiARA
+Метод решения CyberSiARA. Он возвращает токен для обхода капчи.
+```ruby
+result = client.cyber_siara({
+  pageurl: "https://test.com",
+  master_url_id: "12333-3123123"
 })
 ```
 

@@ -27,6 +27,7 @@ A Ruby client for the 2Captcha API.
   - [GeeTest V4](#geetest-v4)
   - [Audio](#audio)
   - [Yandex](#yandex)
+  - [CyberSiARA](#cyber_siara)
 - [Other methods](#other-methods)
   - [send / get_result](#send--getresult)
   - [balance](#balance)
@@ -323,6 +324,15 @@ Use this method to solve Yandex and obtain a token to bypass the protection.
 result = client.yandex({
   sitekey: 'Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV',
   url: "https://rutube.ru"
+})
+```
+
+### CyberSiARA
+Use this method to solve CyberSiARA and obtain a token to bypass the protection.
+```ruby
+result = client.cyber_siara({
+  pageurl: "https://test.com",
+  master_url_id: "12333-3123123"
 })
 ```
 
