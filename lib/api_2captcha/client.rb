@@ -98,76 +98,76 @@ module Api2Captcha
     end
 
     def normal(params)
-      solve("post", params)
+      solve("post", **params)
     end
 
     def text(params)
-      solve("textcaptcha", params)
+      solve("textcaptcha", **params)
     end
 
     def recaptcha_v2(params)
-      solve("userrecaptcha", params)
+      solve("userrecaptcha", **params)
     end
 
     def recaptcha_v3(params)
-      solve("userrecaptcha", params)
+      solve("userrecaptcha", **params)
     end
 
     def funcaptcha(params)
-      solve("funcaptcha", params)
+      solve("funcaptcha", **params)
     end
 
     def geetest(params)
-      solve("geetest", params)
+      solve("geetest", **params)
     end
 
     def hcaptcha(params)
-      solve("hcaptcha", params)
+      solve("hcaptcha", **params)
     end
 
     def keycaptcha(params)
-      solve("keycaptcha", params)
+      solve("keycaptcha", **params)
     end
 
     def capy(params)
-      solve("capy", params)
+      solve("capy", **params)
     end
 
     def grid(params)
       params["recaptcha"] = 1
-      solve("post", params)
+      solve("post", **params)
     end
 
     def canvas(params)
       params["recaptcha"] = 1
       params["canvas"] = 1
-      solve("post", params)
+      solve("post", **params)
     end
 
     def coordinates(params)
       params["coordinatescaptcha"] = 1
 
-      solve("post", params)
+      solve("post", **params)
     end
 
     def rotate(params)
-      solve("rotatecaptcha", params)
+      solve("rotatecaptcha", **params)
     end
 
     def geetest_v4(params)
-      solve("geetest_v4", params)
+      solve("geetest_v4", **params)
     end
 
     def lemin(params)
-      solve("lemin", params)
+      solve("lemin", **params)
     end
 
     def turnstile(params)
-      solve("turnstile", params)
+      solve("turnstile", **params)
     end
 
     def amazon_waf(params)
-      solve("amazon_waf", params)
+      solve("amazon_waf", **params)
     end
 
     def audio(params)
@@ -178,23 +178,23 @@ module Api2Captcha
         "body" => Base64.strict_encode64(audio_content),
         "lang" => params["lang"]
       )
-      solve("audio", params)
+      solve("audio", **params)
     end
 
     def yandex(params)
-      solve("yandex", params)
+      solve("yandex", **params)
     end
 
     def cyber_siara(params)
-      solve("cybersiara", params)
+      solve("cybersiara", **params)
     end
 
     def data_dome(params)
-      solve("datadome", params)
+      solve("datadome", **params)
     end
 
     def mt_captcha(params)
-      solve("mt_captcha", params)
+      solve("mt_captcha", **params)
     end
 
     private
