@@ -25,11 +25,11 @@ Ruby-клиент для API 2Captcha.
   - [Lemin Cropped Captcha](#lemin-cropped-captcha)
   - [GeeTest V4](#geetest-v4)
   - [Аудио](#audio)
-  - [CyberSiARA](#cyber_siara)
-  - [DataDome](#data-dome)
+  - [CyberSiARA](#cybersiara)
+  - [DataDome](#datadome)
   - [MTCaptcha](#mtcaptcha)
 - [Другие методы](#other-methods)
-  - [send / get_result](#send--getresult)
+  - [send / get_result](#send-get_result)
   - [balance](#balance)
   - [report](#report)
   - [Обработка ошибок](#error-handling)
@@ -318,7 +318,7 @@ result = client.mt_captcha({
 
 ## Другие методы
 
-### send / get_result
+<h3 id="send-get_result"> send / get_result</h3>
 Эти методы могут быть использованы для ручного отправления капчи и получения результата.
 ```ruby
 # пример для обычной капчи
