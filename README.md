@@ -27,11 +27,11 @@ A Ruby client for the 2Captcha API.
   - [GeeTest V4](#geetest-v4)
   - [Audio](#audio)
   - [Yandex](#yandex)
-  - [CyberSiARA](#cyber_siara)
-  - [DataDome](#data-dome)
+  - [CyberSiARA](#cybersiara)
+  - [DataDome](#datadome)
   - [MTCaptcha](#mtcaptcha)
 - [Other methods](#other-methods)
-  - [send / get_result](#send--getresult)
+  - [send / get_result](#send-get_result)
   - [balance](#balance)
   - [report](#report)
   - [Error handling](#error-handling)
@@ -361,7 +361,7 @@ result = client.mt_captcha({
 
 ## Other methods
 
-### send / get_result
+<h3 id="send-get_result"> send / get_result</h3>
 These methods can be used for manual captcha submission and answer polling.
 ```ruby
 
