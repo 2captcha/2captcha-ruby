@@ -30,8 +30,9 @@ A Ruby client for the 2Captcha API.
   - [CyberSiARA](#cybersiara)
   - [DataDome](#datadome)
   - [MTCaptcha](#mtcaptcha)
+  - [Friendly captcha](#friendly-captcha)
 - [Other methods](#other-methods)
-  - [send / get_result](#send-get_result)
+  - [send / get_result](#send--get_result)
   - [balance](#balance)
   - [report](#report)
   - [Error handling](#error-handling)
@@ -359,9 +360,19 @@ result = client.mt_captcha({
 })
 ```
 
+### Friendly captcha
+Use this method to solve Friendly captcha and obtain a token to bypass the protection.
+```ruby
+result = client.friendly_captcha({
+  pageurl: "https://example.com",
+  sitekey: "2FZFEVS1FZCGQ9"
+})
+```
+
 ## Other methods
 
-<h3 id="send-get_result"> send / get_result</h3>
+### send / get_result
+
 These methods can be used for manual captcha submission and answer polling.
 ```ruby
 
