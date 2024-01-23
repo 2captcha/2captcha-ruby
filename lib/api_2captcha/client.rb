@@ -10,20 +10,20 @@ module Api2Captcha
     DEFAULT_DOMAIN = "2captcha.com"
     BASE_URL_FORMAT = "https://%s"
 
-    attr_reader :api_key, :soft_id
-
     attr_accessor :domain, :callback,
                   :default_timeout,
                   :recaptcha_timeout,
-                  :polling_interval
+                  :polling_interval,
+                  :api_key, :soft_id
 
-    def initialize(api_key, soft_id = 0, callback = nil)
+    def initialize(api_key, callback = nil)
       @api_key = api_key
       @soft_id = soft_id
       @callback = callback
       @default_timeout = 120
       @recaptcha_timeout = 600
       @polling_interval = 10
+      @soft_id = 0
       @domain = DEFAULT_DOMAIN
     end
 
@@ -195,6 +195,10 @@ module Api2Captcha
 
     def mt_captcha(params)
       solve("mt_captcha", **params)
+    end
+
+    def friendly(params)
+      solve("friendly_captcha", **params)
     end
 
     private

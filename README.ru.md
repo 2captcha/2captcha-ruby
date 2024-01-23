@@ -28,8 +28,9 @@ Ruby-клиент для API 2Captcha.
   - [CyberSiARA](#cybersiara)
   - [DataDome](#datadome)
   - [MTCaptcha](#mtcaptcha)
+  - [Friendly captcha](#friendly-captcha)
 - [Другие методы](#other-methods)
-  - [send / get_result](#send-get_result)
+  - [send / get_result](#send--get_result)
   - [balance](#balance)
   - [report](#report)
   - [Обработка ошибок](#error-handling)
@@ -316,9 +317,18 @@ result = client.mt_captcha({
 })
 ```
 
+### Friendly captcha
+Метод решения Friendly captcha. Он возвращает токен для обхода капчи.
+```ruby
+result = client.friendly_captcha({
+  pageurl: "https://example.com",
+  sitekey: "2FZFEVS1FZCGQ9"
+})
+```
+
 ## Другие методы
 
-<h3 id="send-get_result"> send / get_result</h3>
+### send / get_result
 Эти методы могут быть использованы для ручного отправления капчи и получения результата.
 ```ruby
 # пример для обычной капчи
