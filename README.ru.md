@@ -320,7 +320,7 @@ result = client.mt_captcha({
 ### Friendly captcha
 Метод решения Friendly captcha. Он возвращает токен для обхода капчи.
 ```ruby
-result = client.friendly_captcha({
+result = client.friendly({
   pageurl: "https://example.com",
   sitekey: "2FZFEVS1FZCGQ9"
 })
