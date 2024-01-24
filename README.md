@@ -363,7 +363,7 @@ result = client.mt_captcha({
 ### Friendly captcha
 Use this method to solve Friendly captcha and obtain a token to bypass the protection.
 ```ruby
-result = client.friendly_captcha({
+result = client.friendly({
   pageurl: "https://example.com",
   sitekey: "2FZFEVS1FZCGQ9"
 })
