@@ -13,6 +13,7 @@ A Ruby client for the 2Captcha API.
   - [reCAPTCHA v2](#recaptcha-v2)
   - [reCAPTCHA v3](#recaptcha-v3)
   - [reCAPTCHA Enterprise](#recaptcha-enterprise)
+  - [FunCaptcha](#funcaptcha)
   - [GeeTest](#geetest)
   - [hCaptcha](#hcaptcha)
   - [KeyCaptcha](#keycaptcha)
