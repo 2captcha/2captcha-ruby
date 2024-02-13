@@ -201,6 +201,10 @@ module Api2Captcha
       solve("friendly_captcha", **params)
     end
 
+    def cutcaptcha(params)
+      solve("cutcaptcha", **params)
+    end
+
     private
 
     def base_url

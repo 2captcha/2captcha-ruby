@@ -13,6 +13,7 @@ A Ruby client for the 2Captcha API.
   - [reCAPTCHA v2](#recaptcha-v2)
   - [reCAPTCHA v3](#recaptcha-v3)
   - [reCAPTCHA Enterprise](#recaptcha-enterprise)
+  - [FunCaptcha](#funcaptcha)
   - [GeeTest](#geetest)
   - [hCaptcha](#hcaptcha)
   - [KeyCaptcha](#keycaptcha)
@@ -31,6 +32,7 @@ A Ruby client for the 2Captcha API.
   - [DataDome](#datadome)
   - [MTCaptcha](#mtcaptcha)
   - [Friendly captcha](#friendly-captcha)
+  - [Cutcaptcha](#cutcaptcha)
 - [Other methods](#other-methods)
   - [send / get_result](#send--get_result)
   - [balance](#balance)
@@ -366,6 +368,16 @@ Use this method to solve Friendly captcha and obtain a token to bypass the prote
 result = client.friendly({
   pageurl: "https://example.com",
   sitekey: "2FZFEVS1FZCGQ9"
+})
+```
+
+### Cutcaptcha
+Use this method to solve Cutcaptcha and obtain a token to bypass the protection.
+```ruby
+result = client.cutcaptcha({
+  misery_key: "a1488b66da00bf332a1488993a5443c79047e752",
+  api_key: "SAb83IIB",
+  pageurl: "https://example.cc/foo/bar.html"
 })
 ```
 

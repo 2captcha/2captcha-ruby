@@ -12,6 +12,7 @@ Ruby-клиент для API 2Captcha.
   - [Текстовая капча](#text-captcha)
   - [ReCaptcha v2](#recaptcha-v2)
   - [ReCaptcha v3](#recaptcha-v3)
+  - [FunCaptcha](#funcaptcha)
   - [GeeTest](#geetest)
   - [hCaptcha](#hcaptcha)
   - [KeyCaptcha](#keycaptcha)
@@ -29,6 +30,7 @@ Ruby-клиент для API 2Captcha.
   - [DataDome](#datadome)
   - [MTCaptcha](#mtcaptcha)
   - [Friendly captcha](#friendly-captcha)
+  - [Cutcaptcha](#cutcaptcha)
 - [Другие методы](#other-methods)
   - [send / get_result](#send--get_result)
   - [balance](#balance)
@@ -323,6 +325,16 @@ result = client.mt_captcha({
 result = client.friendly({
   pageurl: "https://example.com",
   sitekey: "2FZFEVS1FZCGQ9"
+})
+```
+
+### Cutcaptcha
+Метод решения Cutcaptcha. Он возвращает токен для обхода капчи.
+```ruby
+result = client.cutcaptcha({
+  misery_key: "a1488b66da00bf332a1488993a5443c79047e752",
+  api_key: "SAb83IIB",
+  pageurl: "https://example.cc/foo/bar.html"
 })
 ```
 
