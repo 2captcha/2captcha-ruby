@@ -1,6 +1,6 @@
 # Ruby 2Captcha API Client
 
-This is the easiest way to quickly integrate 2Captcha into your code and automate solving of any type of captcha.
+This is the easiest way to quickly integrate [2Captcha](https://2captcha.com/) into your code and automate solving of any type of captcha.
 
 A Ruby client for the 2Captcha API.
 
@@ -76,13 +76,13 @@ client.api_key = "YOUR_API_KEY"
 
 |Option|Default value|Description|
 |---|---|---|
-|soft_id|-|your software ID obtained after publishing in [2captcha sofware catalog]|
-|callback|-|URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account|
+|soft_id|-|your software ID obtained after publishing in [2captcha sofware catalog](https://2captcha.com/software)|
+|callback|-|URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings](https://2captcha.com/setting/pingback) of your account|
 |default_timeout|120|Timeout in seconds for all captcha types except reCAPTCHA. Defines how long the module tries to get the answer from `res.php` API endpoint|
 |polling_interval|10|Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended|
 
 >  **IMPORTANT:** once `callback` is defined for `Client` instance, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
-To get the answer manually use [get_result method](#send--getresult)
+To get the answer manually use [get_result method](#send--get_result)
 
 ## Solve captcha
 When you submit any image-based captcha use can provide additional options to help 2captcha workers to solve it properly.
@@ -90,13 +90,13 @@ When you submit any image-based captcha use can provide additional options to he
 ### Captcha options
 | Option        | Default Value | Description                                                                                        |
 | ------------- | ------------- | -------------------------------------------------------------------------------------------------- |
-| numeric       | 0             | Defines if captcha contains numeric or other symbols [see more info in the API docs][post options] |
+| numeric       | 0             | Defines if captcha contains numeric or other symbols [see more info in the API docs](https://2captcha.com/2captcha-api#solving_normal_captcha) |
 | min_len     | 0             | minimal answer lenght                                                                              |
 | max_len     | 0             | maximum answer length                                                                              |
 | phrase        | 0             | defines if the answer contains multiple words or not                                               |
 | case_sensitive | 0             | defines if the answer is case sensitive                                                            |
 | calc          | 0             | defines captcha requires calculation                                                               |
-| lang          | -             | defines the captcha language, see the [list of supported languages]                                |
+| lang          | -             | defines the captcha language, see the [list of supported languages](https://2captcha.com/2captcha-api#language)                                |
 | hint_image       | -             | an image with hint shown to workers with the captcha, translated into instructionsimg API parameter                                               |
 | hint_text      | -             | hint or task text shown to workers with the captcha                                                |
 

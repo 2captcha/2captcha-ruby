@@ -1,6 +1,6 @@
 # Ruby 2Captcha API Client
 
-Это самый простой способ быстро интегрировать 2Captcha в ваш код и автоматизировать решение любого типа капчи.
+Это самый простой способ быстро интегрировать [2Captcha](https://2captcha.com/) в ваш код и автоматизировать решение любого типа капчи.
 
 Ruby-клиент для API 2Captcha.
 
@@ -10,8 +10,8 @@ Ruby-клиент для API 2Captcha.
 - [Решение капчи](#solve-captcha)
   - [Обычная капча](#normal-captcha)
   - [Текстовая капча](#text-captcha)
-  - [ReCaptcha v2](#recaptcha-v2)
-  - [ReCaptcha v3](#recaptcha-v3)
+  - [reCAPTCHA v2](#recaptcha-v2)
+  - [reCAPTCHA v3](#recaptcha-v3)
   - [FunCaptcha](#funcaptcha)
   - [GeeTest](#geetest)
   - [hCaptcha](#hcaptcha)
@@ -85,7 +85,7 @@ client.polling_interval(10)
 
 | Параметр            | Значение по умолчанию | Описание                                                                                                                   |
 |-------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------|
-| numeric           | 0             | Определяет, содержит ли капча числа или другие символы [подробнее см. в документации по API](https://2captcha.com/2captcha-api#normal_post)                              |
+| numeric           | 0             | Определяет, содержит ли капча числа или другие символы [подробнее см. в документации по API](https://2captcha.com/2captcha-api#solving_normal_captcha)                              |
 | min_len           | 0             |  Минимальная длина ответа length                                                                                                         |
 | max_len           | 0             | Максимальная длина ответа length                                                                                                         |
 | phrase            | 0             | Определяет, содержит ли ответ несколько слов или нет                                                                          |
@@ -116,8 +116,8 @@ result = client.text({
 })
 ```
 
-### ReCaptcha v2
-Используйте этот метод для решения ReCaptcha V2 и получения токена для обхода защиты.
+### reCAPTCHA v2
+Используйте этот метод для решения reCAPTCHA v2 и получения токена для обхода защиты.
 ```ruby
 result = client.recaptcha_v2({
   googlekey: '6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-',
@@ -126,8 +126,8 @@ result = client.recaptcha_v2({
 })
 ```
 
-### ReCaptcha v3
-Этот метод предоставляет решение для ReCaptcha V3 и возвращает токен.
+### reCAPTCHA v3
+Этот метод предоставляет решение для reCAPTCHA v3 и возвращает токен.
 ```ruby
 result = client.recaptcha_v3({
   googlekey: '6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-',
