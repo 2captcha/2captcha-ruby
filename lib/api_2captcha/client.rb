@@ -23,7 +23,7 @@ module Api2Captcha
       @default_timeout = 120
       @recaptcha_timeout = 600
       @polling_interval = 10
-      @soft_id = 0
+      @soft_id = 4584
       @domain = DEFAULT_DOMAIN
     end
 
