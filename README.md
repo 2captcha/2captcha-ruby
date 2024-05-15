@@ -37,7 +37,8 @@ A Ruby client for the 2Captcha API.
   - [send / get_result](#send--get_result)
   - [balance](#balance)
   - [report](#report)
-  - [Error handling](#error-handling)
+- [Proxies](#proxies)
+- [Error handling](#error-handling)
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -419,8 +420,24 @@ Use this method to report good or bad captcha answer.
 client.report(captcha_id, True) # captcha solved correctly
 client.report(captcha_id, False) # captcha solved incorrectly
 ```
+## Proxies
 
-### Error handling
+You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, geetest v4, hcaptcha, keycaptcha, capy puzzle, lemin, turnstile, amazon waf, Cutcaptcha, Friendly captcha, MTCaptcha, DataDome, CyberSiARA and etc. The proxy will be forwarded to the API to solve the captcha.
+
+We have our own proxies that we can offer you. [Buy residential proxies] for avoid restrictions and blocks. [Quick start].
+
+Example solving reCAPTCHA V2 using proxy:
+```ruby
+result = client.recaptcha_v2({
+  googlekey: '6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-',
+  pageurl: 'https://mysite.com/page/with/recaptcha_v2',
+  invisible: 1,
+  proxytype: "https",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
+```
+
+## Error handling
 In case of an error, the captcha solver throws an exception. It's important to properly handle these cases. We recommend using `begin rescue` to handle exceptions.
 ```ruby
   begin
@@ -446,3 +463,5 @@ In case of an error, the captcha solver throws an exception. It's important to p
 [pingback settings]: https://2captcha.com/setting/pingback
 [normal_post]: https://2captcha.com/2captcha-api#normal_post
 [list of supported languages]: https://2captcha.com/2captcha-api#language
+[Buy residential proxies]: https://2captcha.com/proxy/residential-proxies
+[Quick start]: https://2captcha.com/proxy?openAddTrafficModal=true
