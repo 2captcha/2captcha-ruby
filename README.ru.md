@@ -4,12 +4,12 @@
 
 Ruby-клиент для API 2Captcha.
 
-- [Установка](#installation)
-- [Настройка](#configuration)
-    - [Опции экземпляра клиента](#client-instance-options)
-- [Решение капчи](#solve-captcha)
-  - [Обычная капча](#normal-captcha)
-  - [Текстовая капча](#text-captcha)
+- [Установка](#установка)
+- [Настройка](#настройка)
+    - [Опции экземпляра клиента](#опции-экземпляра-клиента)
+- [Решение капчи](#решение-капчи)
+  - [Обычная капча](#обычная-капча)
+  - [Текстовая капча](#текстовая-капча)
   - [reCAPTCHA v2](#recaptcha-v2)
   - [reCAPTCHA v3](#recaptcha-v3)
   - [FunCaptcha](#funcaptcha)
@@ -31,14 +31,14 @@ Ruby-клиент для API 2Captcha.
   - [MTCaptcha](#mtcaptcha)
   - [Friendly captcha](#friendly-captcha)
   - [Cutcaptcha](#cutcaptcha)
-- [Другие методы](#other-methods)
+- [Другие методы](#другие-методы)
   - [send / get_result](#send--get_result)
-  - [balance](#balance)
-  - [report](#report)
-- [Прокси](#proxies)
-- [Обработка ошибок](#error-handling)
+  - [Баланс](#баланс)
+  - [Отчет](#отчет)
+- [Прокси](#прокси)
+- [Обработка ошибок](#обработка-ошибок)
 
-<h2 id="installation">Установка</h2>
+## Установка
 Автоматическая установка гема с помощью Bundler. Добавьте следующую строку в ваш Gemfile:
 
 ```ruby
@@ -58,7 +58,7 @@ gem install ruby-2captcha
 
 Мы также приглашаем вас ознакомиться с нашим репозиторием на [GitHub](https://github.com/2captcha/), где вы можете найти библиотеки и модули для простой интеграции с нашим API.
 
-<h2 id="configuration">Настройка</h2>
+## Настройка
 
 Описание всех необходимых параметров для настройки установленного гема.
 
@@ -69,7 +69,7 @@ require 'api_2captcha'
 
 client =  Api2Captcha.new("YOUR_API_KEY")
 ```
-
+### Опции экземпляра клиента
 У вас также есть возможность настроить некоторые параметры экземпляра Api2Captcha:
 
 ```ruby
@@ -82,7 +82,7 @@ client.polling_interval(10)
 
 **ВАЖНО**: после определения обратного вызова для экземпляра , все методы возвращают только идентификатор капчи и НЕ запрашивают результат у API. Результат будет отправлен на URL обратного вызова. Чтобы получить ответ вручную, используйте метод get_result.
 
-<h2 id="solve-captcha">Решение капчи</h2>
+## Решение капчи
 При отправке любой капчи, основанной на изображении, вы можете предоставить дополнительные параметры, чтобы помочь работникам 2Captcha правильно ее решить.
 
 ### Параметры капчи
@@ -101,7 +101,7 @@ client.polling_interval(10)
 
 Ниже вы найдете основные примеры для каждого типа капчи. Ознакомьтесь с кодом ниже.
 
-<h3 id="normal-captcha">Обычная капча</h3>
+### Обычная капча
 Для обхода обычной капчи (искаженный текст на картинке) используйте следующий метод. Этот метод также может использоваться для распознавания любого текста на картинке.
 
 ```ruby
@@ -111,7 +111,7 @@ result = client.normal({
   image: 'https://site-with-captcha.com/path/to/captcha.jpg'
 })
 ```
-<h3 id="text-captcha">Текстовая капча</h3>
+### Текстовая капча
 
 Этот метод может использоваться для обхода капчи, которая требует ответить на вопрос, представленный в явном виде.
 
@@ -122,7 +122,7 @@ result = client.text({
 })
 ```
 
-<h3 id="recaptcha-v2">reCAPTCHA v2</h3>
+### reCAPTCHA v2
 Используйте этот метод для решения reCAPTCHA v2 и получения токена для обхода защиты.
 
 ```ruby
@@ -133,7 +133,7 @@ result = client.recaptcha_v2({
 })
 ```
 
-<h3 id="recaptcha-v3">reCAPTCHA v3</h3>
+### reCAPTCHA v3
 Этот метод предоставляет решение для reCAPTCHA v3 и возвращает токен.
 
 ```ruby
@@ -146,7 +146,7 @@ result = client.recaptcha_v3({
 })
 ```
 
-<h3 id="funcaptcha">FunCaptcha</h3>
+### FunCaptcha
 Метод решения FunCaptcha (Arkoselabs). Он возвращает токен.
 
 ```ruby
@@ -156,7 +156,7 @@ result = client.funcaptcha({
    surl: "https://client-api.arkoselabs.com"})
 ```
 
-<h3 id="geetest">GeeTest</h3>
+### GeeTest
 Метод для решения головоломки GeeTest captcha. Он возвращает набор токенов в формате JSON.
 
 ```ruby
@@ -168,7 +168,7 @@ result = client.geetest({
 })
 ```
 
-<h3 id="hcaptcha">hCaptcha</h3>
+### hCaptcha
 Метод решения hCaptcha. Он возвращает токен для обхода капчи.
 
 ```ruby
@@ -178,7 +178,7 @@ result = client.hcaptcha({
 })
 ```
 
-<h3 id="keycaptcha">KeyCaptcha</h3>
+### KeyCaptcha
 Метод на основе токенов для решения KeyCaptcha.
 
 ```ruby
@@ -191,7 +191,7 @@ result = client.keycaptcha({
 })
 ```
 
-<h3 id="capy">Capy</h3>
+### Capy
 Метод основан на использовании токенов для обхода паззла Capy.
 
 ```ruby
@@ -202,7 +202,7 @@ result = client.capy({
 })
 ```
 
-<h3 id="grid">Grid</h3>
+### Grid
 Метод сетки изначально называется методом Old ReCaptcha V2. Этот метод может быть использован для обхода любого типа капчи, где вы можете применить сетку к изображению и необходимо кликнуть по определенным ячейкам сетки. Он возвращает количество выбранных ячеек.
 
 ```ruby
@@ -217,7 +217,7 @@ result = client.grid({
 })
 ```
 
-<h3 id="canvas">Canvas</h3>
+### Canvas
 Метод Canvas может быть использован, когда вам необходимо нарисовать линию вокруг объекта на изображении. Он возвращает набор координат точек для рисования многоугольника.
 
 ```ruby
@@ -230,7 +230,7 @@ result = client.canvas({
 })
 ```
 
-<h3 id="clickcaptcha">ClickCaptcha</h3>
+### ClickCaptcha
 Метод ClickCaptcha возвращает координаты точек на изображении капчи. Может быть использован, если вам необходимо кликнуть по определенным точкам на изображении.
 
 ```ruby
@@ -242,7 +242,7 @@ result = client.coordinates({
 })
 ```
 
-<h3 id="rotate">Rotate</h3>
+### Rotate
 Этот метод может быть использован для решения капчи, которая просит повернуть объект. В основном используется для обхода FunCaptcha. Он возвращает угол поворота.
 
 ```ruby
@@ -256,7 +256,7 @@ result = client.rotate({
 ```
 
 
-<h3 id="lemin-cropped-captcha">Lemin Cropped Captcha</h3>
+### Lemin Cropped Captcha
 Используйте этот метод для решения задания hCaptcha. Он возвращает JSON-ответ с указанными значениями: ответ (answer) и идентификатор задания (challenge_id).
 
 ```ruby
@@ -269,7 +269,7 @@ result = client.lemin({
 ```
 
 
-<h3 id="cloudflare-turnstile">Cloudflare Turnstile</h3>
+### Cloudflare Turnstile
 Используйте этот метод для решения задачи Cloudflare Turnstile. Он возвращает JSON с токеном.
 
 ```ruby
@@ -279,7 +279,7 @@ result = client.turnstile({
 })
 ```
 
-<h3 id="amazon-waf">Amazon WAF</h3>
+### Amazon WAF
 Используйте этот метод для решения Captcha Amazon WAF, также известного как AWS WAF Captcha, который является частью интеллектуальной защиты от угроз для Amazon AWS. Он возвращает JSON с токеном.
 
 ```ruby
@@ -293,7 +293,7 @@ result = client.amazon_waf({
 })
 ```
 
-<h3 id="geetest-v4">GeeTest v4</h3>
+### GeeTest v4
 Используйте этот метод для решения GeeTest v4. Он возвращает ответ в формате JSON.
 
 ```ruby
@@ -303,7 +303,7 @@ result = client.geetest_v4({
 })
 ```
 
-<h3 id="audio">Audio</h3>
+### Audio
 Этот метод можно использовать для решения аудио-капчи.
 
 ```ruby
@@ -313,7 +313,7 @@ result = client.audio({
 })
 ```
 
-<h3 id="cybersiara">CyberSiARA</h3>
+### CyberSiARA
 Метод решения CyberSiARA. Он возвращает токен для обхода капчи.
 
 ```ruby
@@ -323,7 +323,7 @@ result = client.cyber_siara({
 })
 ```
 
-<h3 id="datadome">DataDome</h3>
+### DataDome
 Метод решения DataDome вернет токен для обхода капчи.
 Чтобы решить капчу DataDome вы должны обязательно использовать прокси.
 
@@ -337,7 +337,7 @@ result = client.data_dome({
 ```
 
 
-<h3 id="mtcaptcha">MTCaptcha</h3>
+### MTCaptcha
 Метод решения MTCaptcha. Он возвращает токен для обхода капчи.
 
 ```ruby
@@ -348,7 +348,7 @@ result = client.mt_captcha({
 ```
 
 
-<h3 id="friendly-captcha">Friendly captcha</h3>
+### Friendly captcha
 Метод решения Friendly captcha. Он возвращает токен для обхода капчи.
 
 ```ruby
@@ -359,7 +359,7 @@ result = client.friendly({
 ```
 
 
-<h3 id="cutcaptcha">Cutcaptcha</h3>
+### Cutcaptcha
 Метод решения Cutcaptcha. Он возвращает токен для обхода капчи.
 
 ```ruby
@@ -371,9 +371,9 @@ result = client.cutcaptcha({
 ```
 
 
-<h2 id="other-methods">Другие методы</h2>
+## Другие методы
 
-<h3 id="send--get_result">send / get_result</h3>
+### send / get_result
 Эти методы могут быть использованы для ручного отправления капчи и получения результата.
 
 ```ruby
@@ -394,14 +394,14 @@ time.sleep(20)
 # Получить готовый результат
 result = client.get_result(captcha_id)
 ```
-<h3 id="balance">Баланс</h3>
+### Баланс
 Используйте этот метод, чтобы посмотреть баланс в вашем аккаунте.
 
 ```ruby
 balance = client.get_balance
 ```
 
-<h3 id="report">Отчет</h3>
+### Отчет
 Используйте этот метод для отправки отчета о правильном или неправильном ответе на капчу.
 
 ```ruby
@@ -409,11 +409,11 @@ client.report(captcha_id, True) # капча решена правильно
 client.report(captcha_id, False) # капча решена неправильно
 ```
 
-<h2 id="proxies">Прокси</h2>
+## Прокси
 
 Вы можете передать свой прокси-сервер в качестве дополнительного аргумента для методов: recaptcha, funcaptcha, geetest, geetest v4, hcaptcha, keycaptcha, capy puzzle, lemin, turnstile, amazon waf, Cutcaptcha, Friendly captcha, MTCaptcha, DataDome, CyberSiARA и других. Передынный Прокси-сервер будет перенаправлен в API и будет использован для загрузки капчи.
 
-У нас есть свои собственные прокси-серверы, которые мы можем вам предложить. [Купить резидентские прокси][Buy residential proxies] чтобы избежать ограничений и блокировок. [Быстрый старт][Quick start].
+У нас есть свои собственные прокси-серверы, которые мы можем вам предложить. [Купить резидентские прокси] чтобы избежать ограничений и блокировок. [Быстрый старт].
 
 Пример решения reCAPTCHA V2 с использованием прокси-сервера:
 
@@ -427,7 +427,7 @@ result = client.recaptcha_v2({
 })
 ```
 
-<h2 id="error-handling">Обработка ошибок</h2>
+## Обработка ошибок
 В случае ошибки при решении капчи генерируется исключение. Важно правильно обрабатывать такие случаи. Мы рекомендуем использовать конструкцию `begin rescue` для обработки.
 
 ```ruby
@@ -450,5 +450,5 @@ result = client.recaptcha_v2({
 
 <!-- Shared links -->
 [2Captcha]: https://2captcha.com/
-[Buy residential proxies]: https://2captcha.com/proxy/residential-proxies
-[Quick start]: https://2captcha.com/proxy?openAddTrafficModal=true
+[Купить резидентские прокси]: https://2captcha.com/proxy/residential-proxies
+[Быстрый старт]: https://2captcha.com/proxy?openAddTrafficModal=true
