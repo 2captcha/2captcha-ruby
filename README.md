@@ -1,6 +1,6 @@
 # Ruby 2Captcha API Client
 
-This is the easiest way to quickly integrate 2Captcha into your code and automate solving of any type of captcha.
+This is the easiest way to quickly integrate [2Captcha] into your code and automate solving of any type of captcha.
 
 A Ruby client for the 2Captcha API.
 
@@ -37,7 +37,8 @@ A Ruby client for the 2Captcha API.
   - [send / get_result](#send--get_result)
   - [balance](#balance)
   - [report](#report)
-  - [Error handling](#error-handling)
+- [Proxies](#proxies)
+- [Error handling](#error-handling)
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -74,15 +75,15 @@ client.api_key = "YOUR_API_KEY"
 
 ### Client instance options
 
-|Option|Default value|Description|
-|---|---|---|
-|soft_id|-|your software ID obtained after publishing in [2captcha sofware catalog]|
-|callback|-|URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account|
-|default_timeout|120|Timeout in seconds for all captcha types except reCAPTCHA. Defines how long the module tries to get the answer from `res.php` API endpoint|
-|polling_interval|10|Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended|
+|Option          |Default value|Description                                                             |
+|----------------|-------------|------------------------------------------------------------------------|
+|soft_id         |-            |your software ID obtained after publishing in [2captcha sofware catalog]|
+|callback        |-            |URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account|
+|default_timeout |120          |Timeout in seconds for all captcha types except reCAPTCHA. Defines how long the module tries to get the answer from `res.php` API endpoint|
+|polling_interval|10           |Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended|
 
 >  **IMPORTANT:** once `callback` is defined for `Client` instance, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
-To get the answer manually use [get_result method](#send--getresult)
+To get the answer manually use [get_result method](#send--get_result)
 
 ## Solve captcha
 When you submit any image-based captcha use can provide additional options to help 2captcha workers to solve it properly.
@@ -90,15 +91,15 @@ When you submit any image-based captcha use can provide additional options to he
 ### Captcha options
 | Option        | Default Value | Description                                                                                        |
 | ------------- | ------------- | -------------------------------------------------------------------------------------------------- |
-| numeric       | 0             | Defines if captcha contains numeric or other symbols [see more info in the API docs][post options] |
-| min_len     | 0             | minimal answer lenght                                                                              |
-| max_len     | 0             | maximum answer length                                                                              |
+| numeric       | 0             | Defines if captcha contains numeric or other symbols [see more info in the API docs][normal_post] |
+| min_len       | 0             | minimal answer lenght                                                                              |
+| max_len       | 0             | maximum answer length                                                                              |
 | phrase        | 0             | defines if the answer contains multiple words or not                                               |
-| case_sensitive | 0             | defines if the answer is case sensitive                                                            |
+| case_sensitive| 0             | defines if the answer is case sensitive                                                            |
 | calc          | 0             | defines captcha requires calculation                                                               |
 | lang          | -             | defines the captcha language, see the [list of supported languages]                                |
-| hint_image       | -             | an image with hint shown to workers with the captcha, translated into instructionsimg API parameter                                               |
-| hint_text      | -             | hint or task text shown to workers with the captcha                                                |
+| hint_image    | -             | an image with hint shown to workers with the captcha, translated into instructionsimg API parameter                                               |
+| hint_text     | -             | hint or task text shown to workers with the captcha                                                |
 
 Below you can find basic examples for every captcha type, check out the code below.
 
@@ -419,8 +420,24 @@ Use this method to report good or bad captcha answer.
 client.report(captcha_id, True) # captcha solved correctly
 client.report(captcha_id, False) # captcha solved incorrectly
 ```
+## Proxies
 
-### Error handling
+You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, geetest v4, hcaptcha, keycaptcha, capy puzzle, lemin, turnstile, amazon waf, Cutcaptcha, Friendly captcha, MTCaptcha, DataDome, CyberSiARA and etc. The proxy will be forwarded to the API to solve the captcha.
+
+We have our own proxies that we can offer you. [Buy residential proxies] for avoid restrictions and blocks. [Quick start].
+
+Example solving reCAPTCHA V2 using proxy:
+```ruby
+result = client.recaptcha_v2({
+  googlekey: '6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-',
+  pageurl: 'https://mysite.com/page/with/recaptcha_v2',
+  invisible: 1,
+  proxytype: "https",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
+```
+
+## Error handling
 In case of an error, the captcha solver throws an exception. It's important to properly handle these cases. We recommend using `begin rescue` to handle exceptions.
 ```ruby
   begin
@@ -439,3 +456,12 @@ In case of an error, the captcha solver throws an exception. It's important to p
     puts(e)
   end
 ```
+
+<!-- Shared links -->
+[2Captcha]: https://2captcha.com/
+[2captcha sofware catalog]: https://2captcha.com/software
+[pingback settings]: https://2captcha.com/setting/pingback
+[normal_post]: https://2captcha.com/2captcha-api#normal_post
+[list of supported languages]: https://2captcha.com/2captcha-api#language
+[Buy residential proxies]: https://2captcha.com/proxy/residential-proxies
+[Quick start]: https://2captcha.com/proxy?openAddTrafficModal=true
