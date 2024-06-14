@@ -51,7 +51,7 @@ GEM
     time (0.2.2)
       date
     unicode-display_width (2.4.2)
-    uri (0.12.1)
+    uri (0.13.0)
 
 PLATFORMS
   ruby
