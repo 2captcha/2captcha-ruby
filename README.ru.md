@@ -1,6 +1,16 @@
+<a href="https://github.com/2captcha/2captcha-python"><img src="https://github.com/user-attachments/assets/37e1d860-033b-4cf3-a158-468fc6b4debc" width="82" height="30"></a>
+<a href="https://github.com/2captcha/2captcha-javascript"><img src="https://github.com/user-attachments/assets/4d3b4541-34b2-4ed2-a687-d694ce67e5a6" width="36" height="30"></a>
+<a href="https://github.com/2captcha/2captcha-go"><img src="https://github.com/user-attachments/assets/ab22182e-6cb2-41fa-91f4-d5e89c6d7c6f" width="63" height="30"></a>
+<a href="https://github.com/2captcha/2captcha-ruby"><img src="https://github.com/user-attachments/assets/1c3b6dc2-9acd-44fe-927d-31de3427639f" width="75" height="30"></a>
+<a href="https://github.com/2captcha/2captcha-cpp"><img src="https://github.com/user-attachments/assets/36de8512-acfd-44fb-bb1f-b7c793a3f926" width="45" height="30"></a>
+<a href="https://github.com/2captcha/2captcha-php"><img src="https://github.com/user-attachments/assets/e8797843-3f61-4fa9-a155-ab0b21fb3858" width="52" height="30"></a>
+<a href="https://github.com/2captcha/2captcha-java"><img src="https://github.com/user-attachments/assets/a3d923f6-4fec-4c07-ac50-e20da6370911" width="50" height="30"></a>
+<a href="https://github.com/2captcha/2captcha-csharp"><img src="https://github.com/user-attachments/assets/f4d449de-780b-49ed-bb0a-b70c82ec4b32" width="38" height="30"></a>
+
 # Ruby 2Captcha API Client
 
 Это самый простой способ быстро интегрировать [2Captcha] в ваш код и автоматизировать решение любого типа капчи.
+Примеры API-запросов для различных типов капч доступны на странице [Ruby captcha solver](https://2captcha.com/lang/ruby).
 
 Ruby-клиент для API 2Captcha.
 
@@ -37,6 +47,10 @@ Ruby-клиент для API 2Captcha.
   - [Отчет](#отчет)
 - [Прокси](#прокси)
 - [Обработка ошибок](#обработка-ошибок)
+- [Свяжитесь с нами](#свяжитесь-с-нами)
+- [Присоединяйтесь к команде 👪](#join-the-team)
+- [Лицензия](#лицензия)
+  - [Графика и товарные знаки](#графика-и-товарные-знаки)
 
 ## Установка
 Автоматическая установка гема с помощью Bundler. Добавьте следующую строку в ваш Gemfile:
@@ -447,6 +461,25 @@ result = client.recaptcha_v2({
     puts(e)
   end
 ```
+
+## Свяжитесь с нами
+
+<a href="mailto:support@2captcha.com"><img src="https://github.com/user-attachments/assets/539df209-7c85-4fa5-84b4-fc22ab93fac7" width="80" height="30"></a>
+<a href="https://2captcha.com/support/tickets/new"><img src="https://github.com/user-attachments/assets/be044db5-2e67-46c6-8c81-04b78bd99650" width="81" height="30"></a>
+
+<h2 id='join-the-team'>Присоединяйтесь к команде 👪</h2>
+
+Есть много способов внести свой вклад, и разработка - лишь один из них! Найдите свою следующую работу. Открытые вакансии: AI experts, scrapers, developers, technical support, и многое другое! 😍
+
+<a href="mailto:job@2captcha.com"><img src="https://github.com/user-attachments/assets/36d23ef5-7866-4841-8e17-261cc8a4e033" width="80" height="30"></a>
+
+# Лицензия
+
+Код в этом репозитории лицензируется по лицензии MIT. Более подробную информацию см. в файле [LICENSE](./LICENSE).
+
+### Графика и товарные знаки
+
+Графика и товарные знаки, включенные в этот репозиторий, не подпадают под действие лицензии MIT. За разрешениями на использование этих материалов обращайтесь в <a href="mailto:support@2captcha.com">службу поддержки</a>.
 
 <!-- Shared links -->
 [2Captcha]: https://2captcha.com/
