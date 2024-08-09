@@ -473,7 +473,7 @@ result = client.recaptcha_v2({
 
 <a href="mailto:job@2captcha.com"><img src="https://github.com/user-attachments/assets/36d23ef5-7866-4841-8e17-261cc8a4e033" width="80" height="30"></a>
 
-# Лицензия
+## Лицензия
 
 Код в этом репозитории лицензируется по лицензии MIT. Более подробную информацию см. в файле [LICENSE](./LICENSE).
 
