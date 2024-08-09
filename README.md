@@ -7,13 +7,13 @@
 <a href="https://github.com/2captcha/2captcha-java"><img src="https://github.com/user-attachments/assets/a3d923f6-4fec-4c07-ac50-e20da6370911" width="50" height="30"></a>
 <a href="https://github.com/2captcha/2captcha-csharp"><img src="https://github.com/user-attachments/assets/f4d449de-780b-49ed-bb0a-b70c82ec4b32" width="38" height="30"></a>
 
-# Ruby 2Captcha API Client
+# Ruby 2Captcha API Client (captcha solver)
 
 This is the easiest way to quickly integrate [2Captcha] into your code and automate solving of any type of captcha.
 Examples of API requests for different captcha types are available on the [Ruby captcha solver](https://2captcha.com/lang/ruby) page.
 
 A Ruby client for the 2Captcha API.
-- [Ruby 2Captcha API Client](#ruby-2captcha-api-client)
+- [Ruby 2Captcha API Client (captcha solver)](#ruby-2captcha-api-client-captcha-solver)
     - [Installation](#installation)
     - [Configuration](#configuration)
         - [Client instance options](#client-instance-options)
