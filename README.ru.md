@@ -42,6 +42,7 @@ Ruby-клиент для API 2Captcha.
   - [Friendly captcha](#friendly-captcha)
   - [Cutcaptcha](#cutcaptcha)
   - [Tencent](#tencent)
+  - [atbCAPTCHA](#atb_captcha)
 - [Другие методы](#другие-методы)
   - [send / get_result](#send--get_result)
   - [Баланс](#баланс)
@@ -373,7 +374,6 @@ result = client.friendly({
 })
 ```
 
-
 ### Cutcaptcha
 Метод решения Cutcaptcha. Он возвращает токен для обхода капчи.
 
@@ -393,6 +393,17 @@ result = client.tencent({
   pageurl: "https://mysite.com/page/with/tencent"
 })
 ```
+
+### atbCAPTCHA
+Основанный на токенах метод автоматизированного решения капчи atbCAPTCHA.
+```ruby
+result = client.atb_captcha({
+  app_id: "197326679",
+  api_server: "api.atb_captcha.com",
+  pageurl: "https://mysite.com/page/with/atb_captcha"
+})
+```
+
 
 ## Другие методы
 

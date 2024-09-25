@@ -209,6 +209,10 @@ module Api2Captcha
       solve("tencent", **params)
     end
 
+    def atb_captcha(params)
+      solve("atb_captcha", **params)
+    end
+
     private
 
     def base_url
