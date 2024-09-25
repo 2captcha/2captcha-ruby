@@ -41,6 +41,7 @@ Ruby-клиент для API 2Captcha.
   - [MTCaptcha](#mtcaptcha)
   - [Friendly captcha](#friendly-captcha)
   - [Cutcaptcha](#cutcaptcha)
+  - [Tencent](#tencent)
 - [Другие методы](#другие-методы)
   - [send / get_result](#send--get_result)
   - [Баланс](#баланс)
@@ -384,6 +385,14 @@ result = client.cutcaptcha({
 })
 ```
 
+### Tencent
+Основанный на токенах метод автоматизированного решения капчи Tencent.
+```ruby
+result = client.tencent({
+  app_id: "197326679",
+  pageurl: "https://mysite.com/page/with/tencent"
+})
+```
 
 ## Другие методы
 

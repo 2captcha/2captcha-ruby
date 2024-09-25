@@ -205,6 +205,10 @@ module Api2Captcha
       solve("cutcaptcha", **params)
     end
 
+    def tencent(params)
+      solve("tencent", **params)
+    end
+
     private
 
     def base_url

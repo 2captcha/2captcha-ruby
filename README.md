@@ -43,6 +43,7 @@ A Ruby client for the 2Captcha API.
       - [MTCaptcha](#mtcaptcha)
       - [Friendly captcha](#friendly-captcha)
       - [Cutcaptcha](#cutcaptcha)
+      - [Tencent](#tencent)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -393,6 +394,15 @@ result = client.cutcaptcha({
   misery_key: "a1488b66da00bf332a1488993a5443c79047e752",
   api_key: "SAb83IIB",
   pageurl: "https://example.cc/foo/bar.html"
+})
+```
+
+### Tencent
+Token-based method for automated solving of Tencent captcha.
+```ruby
+result = client.tencent({
+  app_id: "197326679",
+  pageurl: "https://mysite.com/page/with/tencent"
 })
 ```
 
