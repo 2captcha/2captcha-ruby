@@ -235,16 +235,24 @@ module Api2Captcha
       image = params.delete("image")
       hint_image = params.delete("hint_image")
 
-      image_content = get_image_content(image)
-      hint_image_content = get_image_content(hint_image) if hint_image
+      image_content = if base64_encoded?(image)
+        image
+      else
+        Base64.strict_encode64(get_image_content(image))
+      end
+
+      hint_image_content = if hint_image
+                  base64_encoded?(hint_image) ? hint_image : Base64.strict_encode64(get_image_content(hint_image))
+                  end
+
       result_params = {
         "method" => "base64",
-        "body" => Base64.strict_encode64(image_content),
+        "body" => image_content,
         "filename" => File.basename(image),
         "ext" => File.extname(image).delete(".")
       }
 
-      result_params["imginstructions"] = Base64.strict_encode64(hint_image_content) if hint_image_content
+      result_params["imginstructions"] = hint_image_content if hint_image_content
       params.merge(result_params)
     end
 
@@ -252,6 +260,10 @@ module Api2Captcha
       return download_image(image) if image.start_with?('http')
       return File.binread(image) if File.file?(image)
       image
+    end
+
+    def base64_encoded?(string)
+      string.is_a?(String) && string.match(/\A[A-Za-z0-9+\/=]+\z/) && (string.length % 4).zero?
     end
 
     def download_image(url)
