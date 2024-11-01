@@ -44,7 +44,7 @@ A Ruby client for the 2Captcha API.
       - [Friendly captcha](#friendly-captcha)
       - [Cutcaptcha](#cutcaptcha)
       - [Tencent](#tencent)
-      - [atbCAPTCHA](#atb_captcha)
+      - [atbCAPTCHA](#atbcaptcha)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)

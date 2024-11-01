@@ -42,7 +42,7 @@ Ruby-клиент для API 2Captcha.
   - [Friendly captcha](#friendly-captcha)
   - [Cutcaptcha](#cutcaptcha)
   - [Tencent](#tencent)
-  - [atbCAPTCHA](#atb_captcha)
+  - [atbCAPTCHA](#atbcaptcha)
 - [Другие методы](#другие-методы)
   - [send / get_result](#send--get_result)
   - [Баланс](#баланс)
