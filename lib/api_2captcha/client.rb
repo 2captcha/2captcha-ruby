@@ -171,7 +171,7 @@ module Api2Captcha
     end
 
     def audio(params)
-      audio = params.delete("audio")
+      audio = params.delete(:audio)
       audio_content = File.file?(audio) ? File.binread(audio) : audio
 
       params = params.merge(
