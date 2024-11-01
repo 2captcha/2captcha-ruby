@@ -12,19 +12,20 @@
 This is the easiest way to quickly integrate [2Captcha] into your code and automate solving of any type of captcha.
 Examples of API requests for different captcha types are available on the [Ruby captcha solver](https://2captcha.com/lang/ruby) page.
 
-A Ruby client for the 2Captcha API.
 - [Ruby 2Captcha API Client (captcha solver)](#ruby-2captcha-api-client-captcha-solver)
     - [Installation](#installation)
     - [Configuration](#configuration)
         - [Client instance options](#client-instance-options)
     - [Solve captcha](#solve-captcha)
+      - [Captcha options](#captcha-options)
       - [Normal Captcha](#normal-captcha)
-      - [Text](#text-captcha)
+      - [Text Captcha](#text-captcha)
       - [reCAPTCHA v2](#recaptcha-v2)
       - [reCAPTCHA v3](#recaptcha-v3)
       - [reCAPTCHA Enterprise](#recaptcha-enterprise)
       - [FunCaptcha](#funcaptcha)
       - [GeeTest](#geetest)
+      - [GeeTest V4](#geetest-v4)
       - [hCaptcha](#hcaptcha)
       - [KeyCaptcha](#keycaptcha)
       - [Capy](#capy)
@@ -32,11 +33,10 @@ A Ruby client for the 2Captcha API.
       - [Canvas](#canvas)
       - [ClickCaptcha](#clickcaptcha)
       - [Rotate](#rotate)
-      - [AmazonWAF](#amazon-waf)
-      - [CloudflareTurnstile](#cloudflare-turnstile)
+      - [Amazon WAF](#amazon-waf)
+      - [Cloudflare Turnstile](#cloudflare-turnstile)
       - [Lemin Cropped Captcha](#lemin-cropped-captcha)
-      - [GeeTest V4](#geetest-v4)
-      - [Audio](#audio)
+      - [Audio Captcha](#audio-captcha)
       - [Yandex](#yandex)
       - [CyberSiARA](#cybersiara)
       - [DataDome](#datadome)
@@ -51,6 +51,7 @@ A Ruby client for the 2Captcha API.
       - [report](#report)
     - [Proxies](#proxies)
     - [Error handling](#error-handling)
+    - [Examples](#examples)
 - [Get in touch](#get-in-touch)
 - [Join the team 👪](#join-the-team-)
 - [License](#license)
@@ -93,12 +94,14 @@ client.api_key = "YOUR_API_KEY"
 
 |Option          |Default value|Description                                                             |
 |----------------|-------------|------------------------------------------------------------------------|
-|soft_id         |-            |your software ID obtained after publishing in [2captcha sofware catalog]|
+|soft_id         |4584            |your software ID obtained after publishing in [2captcha sofware catalog]|
 |callback        |-            |URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account|
 |default_timeout |120          |Timeout in seconds for all captcha types except reCAPTCHA. Defines how long the module tries to get the answer from `res.php` API endpoint|
 |polling_interval|10           |Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended|
 
->  **IMPORTANT:** once `callback` is defined for `Client` instance, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
+>  [!IMPORTANT]
+> Once `callback` is defined for `Client` instance, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
+
 To get the answer manually use [get_result method](#send--get_result)
 
 ## Solve captcha
@@ -121,6 +124,9 @@ Below you can find basic examples for every captcha type, check out the code bel
 
 
 ### Normal Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_normal_captcha)</sup>
+
 To bypass a normal captcha (distorted text on image) use the following method. This method also can be used to recognize any text on the image.
 ```ruby
 result = client.normal({ image: 'path/to/captcha.jpg'})
@@ -131,6 +137,9 @@ result = client.normal({
 ```
 
 ### Text Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_text_captcha)</sup>
+
 This method can be used to bypass a captcha that requires to answer a question provided in clear text.
 ```ruby
 result = client.text({
@@ -140,6 +149,9 @@ result = client.text({
 ```
 
 ### reCAPTCHA v2
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_recaptchav2_new)</sup>
+
 Use this method to solve reCAPTCHA V2 and obtain a token to bypass the protection.
 ```ruby
 result = client.recaptcha_v2({
@@ -150,6 +162,9 @@ result = client.recaptcha_v2({
 ```
 
 ### reCAPTCHA v3
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_recaptchav3)</sup>
+
 This method provides reCAPTCHA V3 solver and returns a token.
 ```ruby
 result = client.recaptcha_v3({
@@ -162,6 +177,9 @@ result = client.recaptcha_v3({
 ```
 
 ### reCAPTCHA Enterprise
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#recaptcha-enterprise)</sup>
+
 reCAPTCHA Enterprise can be used as reCAPTCHA V2 and reCAPTCHA V3. Below is a usage example for both versions.
 
 ```ruby
@@ -184,6 +202,9 @@ result = client.recaptcha_v3({
 ```
 
 ### FunCaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_funcaptcha_new)</sup>
+
 FunCaptcha (Arkoselabs) solving method. Returns a token.
 
 ```ruby
@@ -194,6 +215,9 @@ result = client.funcaptcha({
 ```
 
 ### GeeTest
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_geetest)</sup>
+
 Method to solve GeeTest puzzle captcha. Returns a set of tokens as JSON.
 ```ruby
 result = client.geetest({
@@ -204,7 +228,22 @@ result = client.geetest({
 })
 ```
 
+### GeeTest v4
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#geetest-v4)</sup>
+
+Use this method to solve GeeTest v4. Returns the response in JSON.
+```ruby
+result = client.geetest_v4({
+  captcha_id: 'e392e1d7fd421dc63325744d5a2b9c73',
+  pageurl: 'https://www.site.com/page/'
+})
+```
+
 ### hCaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_hcaptcha)</sup>
+
 Use this method to solve hCaptcha challenge. Returns a token to bypass captcha.
 ```ruby
 result = client.hcaptcha({
@@ -214,6 +253,9 @@ result = client.hcaptcha({
 ```
 
 ### KeyCaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_keycaptcha)</sup>
+
 Token-based method to solve KeyCaptcha.
 ```ruby
 result = client.keycaptcha({
@@ -226,6 +268,9 @@ result = client.keycaptcha({
 ```
 
 ### Capy
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_capy)</sup>
+
 Token-based method to bypass Capy puzzle captcha.
 ```ruby
 result = client.capy({
@@ -236,6 +281,9 @@ result = client.capy({
 ```
 
 ### Grid
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#grid)</sup>
+
 Grid method is originally called Old reCAPTCHA V2 method. The method can be used to bypass any type of captcha where you can apply a grid on image and need to click specific grid boxes. Returns numbers of boxes.
 ```ruby
 result = client.grid({
@@ -250,6 +298,9 @@ result = client.grid({
 ```
 
 ### Canvas
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#canvas)</sup>
+
 Canvas method can be used when you need to draw a line around an object on image. Returns a set of points' coordinates to draw a polygon.
 ```ruby
 result = client.canvas({
@@ -262,6 +313,9 @@ result = client.canvas({
 ```
 
 ### ClickCaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#coordinates)</sup>
+
 ClickCaptcha method returns coordinates of points on captcha image. Can be used if you need to click on particular points on the image.
 ```ruby
 result = client.coordinates({
@@ -273,6 +327,9 @@ result = client.coordinates({
 ```
 
 ### Rotate
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_rotatecaptcha)</sup>
+
 This method can be used to solve a captcha that asks to rotate an object. Mostly used to bypass FunCaptcha. Returns the rotation angle.
 ```ruby
 result = client.rotate({
@@ -285,7 +342,10 @@ result = client.rotate({
 ```
 
 ### Lemin Cropped Captcha
-Use this method to solve hCaptcha challenge. Returns JSON with answer containing the following values: answer, challenge_id.
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#lemin)</sup>
+
+Use this method to solve Lemin challenge. Returns JSON with answer containing the following values: answer, challenge_id.
 ```ruby
 result = client.lemin({
   captcha_id: 'CROPPED_1abcd2f_a1234b567c890d12ef3a456bc78d901d',
@@ -296,6 +356,9 @@ result = client.lemin({
 ```
 
 ### Cloudflare Turnstile
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#turnstile)</sup>
+
 Use this method to solve Cloudflare Turnstile. Returns JSON with the token and User-Agent.
 ```ruby
 result = client.turnstile({
@@ -310,6 +373,9 @@ result = client.turnstile({
 ```
 
 ### Amazon WAF
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#amazon-waf)</sup>
+
 Use this method to solve Amazon WAF Captcha also known as AWS WAF Captcha is a part of Intelligent threat mitigation for Amazon AWS. Returns JSON with the token.
 ```ruby
 result = client.amazon_waf({
@@ -322,20 +388,15 @@ result = client.amazon_waf({
 })
 ```
 
-### GeeTest v4
-Use this method to solve GeeTest v4. Returns the response in JSON.
-```ruby
-result = client.geetest_v4({
-  captcha_id: 'e392e1d7fd421dc63325744d5a2b9c73',
-  pageurl: 'https://www.site.com/page/'
-})
-```
+### Audio Captcha
 
-### Audio
-This method can be used to solve a audio captcha
+<sup>[API method description.](https://2captcha.com/2captcha-api#audio)</sup>
+
+Use the following method to bypass an audio captcha (mp3 formats only). 
+You must provide the language as `lang = 'en'`. Supported languages are "en", "ru", "de", "el", "pt", "fr".
 ```ruby
 result = client.audio({
-  audio: 'path/to/audio.jpg',
+  audio: 'path/to/audio.mp3',
   lang: "en"
 })
 ```
@@ -350,6 +411,9 @@ result = client.yandex({
 ```
 
 ### CyberSiARA
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#cybersiara)</sup>
+
 Use this method to solve CyberSiARA and obtain a token to bypass the protection.
 ```ruby
 result = client.cyber_siara({
@@ -359,8 +423,15 @@ result = client.cyber_siara({
 ```
 
 ### DataDome
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#datadome)</sup>
+
 Use this method to solve DataDome and obtain a token to bypass the protection.
-To solve the DataDome captcha, you must use a proxy.
+
+
+> [!IMPORTANT]
+> To solve the DataDome captcha, you must use a proxy. It is recommended to use [residential proxies].
+
 ```ruby
 result = client.data_dome({
   pageurl: "https://test.com",
@@ -371,6 +442,9 @@ result = client.data_dome({
 ```
 
 ### MTCaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#mtcaptcha)</sup>
+
 Use this method to solve MTCaptcha and obtain a token to bypass the protection.
 ```ruby
 result = client.mt_captcha({
@@ -380,7 +454,14 @@ result = client.mt_captcha({
 ```
 
 ### Friendly captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#friendly-captcha)</sup>
+
 Use this method to solve Friendly captcha and obtain a token to bypass the protection.
+
+> [!IMPORTANT]
+> To successfully use the received token, the captcha widget must not be loaded on the page. To do this, you need to abort request to `/friendlycaptcha/...module.min.js` on the page. When the captcha widget is already loaded on the page, there is a high probability that the received token will not work.
+
 ```ruby
 result = client.friendly({
   pageurl: "https://example.com",
@@ -389,6 +470,9 @@ result = client.friendly({
 ```
 
 ### Cutcaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#cutcaptcha)</sup>
+
 Use this method to solve Cutcaptcha and obtain a token to bypass the protection.
 ```ruby
 result = client.cutcaptcha({
@@ -399,6 +483,9 @@ result = client.cutcaptcha({
 ```
 
 ### Tencent
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#tencent)</sup>
+
 Token-based method for automated solving of Tencent captcha.
 ```ruby
 result = client.tencent({
@@ -408,6 +495,9 @@ result = client.tencent({
 ```
 
 ### atbCAPTCHA
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#atb-captcha)</sup>
+
 Token-based method for automated solving of atbCAPTCHA.
 ```ruby
 result = client.atb_captcha({
@@ -443,6 +533,9 @@ result = client.get_result(captcha_id)
 ```
 
 ### balance
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#additional-methods)</sup>
+
 Use this method to get your account's balance
 
 ```ruby
@@ -450,6 +543,9 @@ balance = client.get_balance
 ```
 
 ### report
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#complain)</sup>
+
 Use this method to report good or bad captcha answer.
 ```ruby
 client.report(captcha_id, True) # captcha solved correctly
@@ -492,6 +588,10 @@ In case of an error, the captcha solver throws an exception. It's important to p
   end
 ```
 
+## Examples
+
+Examples of solving all supported captcha types are located in the [examples] directory.
+
 ## Get in touch
 
 <a href="mailto:support@2captcha.com"><img src="https://github.com/user-attachments/assets/539df209-7c85-4fa5-84b4-fc22ab93fac7" width="80" height="30"></a>
@@ -519,3 +619,5 @@ The graphics and trademarks included in this repository are not covered by the M
 [list of supported languages]: https://2captcha.com/2captcha-api#language
 [Buy residential proxies]: https://2captcha.com/proxy/residential-proxies
 [Quick start]: https://2captcha.com/proxy?openAddTrafficModal=true
+[examples]: ./examples/
+[residential proxies]: https://2captcha.com/proxy/residential-proxies
