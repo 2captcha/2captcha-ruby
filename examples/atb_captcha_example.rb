@@ -7,3 +7,5 @@ result = client.atb_captcha({
   api_server: "api.atb_captcha.com",
   pageurl: "https://mysite.com/page/with/atb_captcha"
 })
+
+puts "Result: #{result.inspect}"
