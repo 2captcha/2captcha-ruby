@@ -171,7 +171,7 @@ module Api2Captcha
     end
 
     def audio(params)
-      audio = params.delete("audio")
+      audio = params.delete(:audio)
       audio_content = File.file?(audio) ? File.binread(audio) : audio
 
       params = params.merge(
@@ -203,6 +203,14 @@ module Api2Captcha
 
     def cutcaptcha(params)
       solve("cutcaptcha", **params)
+    end
+
+    def tencent(params)
+      solve("tencent", **params)
+    end
+
+    def atb_captcha(params)
+      solve("atb_captcha", **params)
     end
 
     private
