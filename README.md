@@ -288,12 +288,12 @@ Grid method is originally called Old reCAPTCHA V2 method. The method can be used
 ```ruby
 result = client.grid({
   image: 'path/to/captcha.jpg',
-  rows: 3,
-  cols: 3,
+  recaptcharows: 3,
+  recaptchacols: 3,
   previous_id: 0,
   lang: 'en',
-  hint_image: 'path/to/hint.jpg',
-  hint_text: 'Select all images with an Orange'
+  imginstructions: 'path/to/hint.jpg',
+  textinstructions: 'Select all images with an Orange'
 })
 ```
 
