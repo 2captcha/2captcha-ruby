@@ -134,7 +134,7 @@ module Api2Captcha
     end
 
     def grid(params)
-      params["recaptcha"] = 1
+      params[:recaptcha] = 1
       solve("post", **params)
     end
 
