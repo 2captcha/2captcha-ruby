@@ -19,11 +19,8 @@ Gem::Specification.new do |spec|
   spec.metadata["changelog_uri"] = "https://github.com/2captcha/2captcha-ruby/releases"
   spec.metadata["github_repo"] = "ssh://github.com/2captcha/2captcha-ruby"
   spec.metadata["bug_tracker_uri"] = "https://github.com/2captcha/2captcha-ruby/issues"
-  spec.metadata["keywords"] = [
-    '2captcha', 'captcha solver', 'captcha bypass', 'Ruby', 'automation', 
-    'CAPTCHA API', 'CAPTCHA recognition', 'anti-captcha', 'reCAPTCHA', 'OCR',
-    'image recognition', 'human verification', 'bot protection', 'recaptcha'
-  ]
+  spec.metadata["keywords"] = "2captcha, captcha solver, captcha bypass, Ruby, automation, CAPTCHA API, CAPTCHA recognition, anti-captcha, reCAPTCHA, OCR, image recognition, human verification, bot protection, recaptcha"
+
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
