@@ -26,7 +26,6 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [FunCaptcha](#funcaptcha)
       - [GeeTest](#geetest)
       - [GeeTest V4](#geetest-v4)
-      - [hCaptcha](#hcaptcha)
       - [KeyCaptcha](#keycaptcha)
       - [Capy](#capy)
       - [Grid](#grid)
@@ -236,18 +235,6 @@ Use this method to solve GeeTest v4. Returns the response in JSON.
 ```ruby
 result = client.geetest_v4({
   captcha_id: 'e392e1d7fd421dc63325744d5a2b9c73',
-  pageurl: 'https://www.site.com/page/'
-})
-```
-
-### hCaptcha
-
-<sup>[API method description.](https://2captcha.com/2captcha-api#solving_hcaptcha)</sup>
-
-Use this method to solve hCaptcha challenge. Returns a token to bypass captcha.
-```ruby
-result = client.hcaptcha({
-  sitekey: '10000000-ffff-ffff-ffff-000000000001',
   pageurl: 'https://www.site.com/page/'
 })
 ```
@@ -553,7 +540,7 @@ client.report(captcha_id, False) # captcha solved incorrectly
 ```
 ## Proxies
 
-You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, geetest v4, hcaptcha, keycaptcha, capy puzzle, lemin, turnstile, amazon waf, Cutcaptcha, Friendly captcha, MTCaptcha, DataDome, CyberSiARA and etc. The proxy will be forwarded to the API to solve the captcha.
+You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, geetest v4, keycaptcha, capy puzzle, lemin, turnstile, amazon waf, Cutcaptcha, Friendly captcha, MTCaptcha, DataDome, CyberSiARA and etc. The proxy will be forwarded to the API to solve the captcha.
 
 We have our own proxies that we can offer you. [Buy residential proxies] for avoid restrictions and blocks. [Quick start].
 

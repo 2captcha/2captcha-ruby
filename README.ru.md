@@ -24,7 +24,6 @@
     - [FunCaptcha](#funcaptcha)
     - [GeeTest](#geetest)
     - [GeeTest V4](#geetest-v4)
-    - [hCaptcha](#hcaptcha)
     - [KeyCaptcha](#keycaptcha)
     - [Capy](#capy)
     - [Grid](#grid)
@@ -218,18 +217,6 @@ result = client.geetest_v4({
 })
 ```
 
-### hCaptcha
-
-<sup>[Описание метода API.](https://2captcha.com/2captcha-api#solving_hcaptcha)</sup>
-
-Метод решения hCaptcha. Он возвращает токен для обхода капчи.
-
-```ruby
-result = client.hcaptcha({
-  sitekey: '10000000-ffff-ffff-ffff-000000000001',
-  pageurl: 'https://www.site.com/page/'
-})
-```
 
 ### KeyCaptcha
 
@@ -536,7 +523,7 @@ client.report(captcha_id, False) # капча решена неправильн�
 
 ## Прокси
 
-Вы можете передать свой прокси-сервер в качестве дополнительного аргумента для методов: recaptcha, funcaptcha, geetest, geetest v4, hcaptcha, keycaptcha, capy puzzle, lemin, turnstile, amazon waf, Cutcaptcha, Friendly captcha, MTCaptcha, DataDome, CyberSiARA и других. Передынный Прокси-сервер будет перенаправлен в API и будет использован для загрузки капчи.
+Вы можете передать свой прокси-сервер в качестве дополнительного аргумента для методов: recaptcha, funcaptcha, geetest, geetest v4, keycaptcha, capy puzzle, lemin, turnstile, amazon waf, Cutcaptcha, Friendly captcha, MTCaptcha, DataDome, CyberSiARA и других. Передынный Прокси-сервер будет перенаправлен в API и будет использован для загрузки капчи.
 
 У нас есть свои собственные прокси-серверы, которые мы можем вам предложить. [Купить резидентские прокси] чтобы избежать ограничений и блокировок. [Быстрый старт].
 
