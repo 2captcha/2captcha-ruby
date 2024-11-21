@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["info@2captcha.com"]
 
   spec.summary = "2Captcha API wrapper for Ruby."
-  spec.description = "Ruby package for easy integration with the API of 2captcha captcha solving service to bypass recaptcha, hcaptcha, funcaptcha, geetest and solve any other captchas."
+  spec.description = "Ruby package for easy integration with the API of 2captcha captcha solving service to bypass recaptcha, funcaptcha, geetest and solve any other captchas."
   spec.homepage = "https://2captcha.com/"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
