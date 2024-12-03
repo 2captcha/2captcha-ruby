@@ -93,7 +93,7 @@ client.api_key = "YOUR_API_KEY"
 
 |Option          |Default value|Description                                                             |
 |----------------|-------------|------------------------------------------------------------------------|
-|soft_id         |4584            |your software ID obtained after publishing in [2captcha sofware catalog]|
+|soft_id         |4584            |your software ID obtained after publishing in [2captcha software catalog]|
 |callback        |-            |URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account|
 |default_timeout |120          |Timeout in seconds for all captcha types except reCAPTCHA. Defines how long the module tries to get the answer from `res.php` API endpoint|
 |polling_interval|10           |Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended|
@@ -600,7 +600,7 @@ The graphics and trademarks included in this repository are not covered by the M
 
 <!-- Shared links -->
 [2Captcha]: https://2captcha.com/
-[2captcha sofware catalog]: https://2captcha.com/software
+[2captcha software catalog]: https://2captcha.com/software
 [pingback settings]: https://2captcha.com/setting/pingback
 [normal_post]: https://2captcha.com/2captcha-api#normal_post
 [list of supported languages]: https://2captcha.com/2captcha-api#language
