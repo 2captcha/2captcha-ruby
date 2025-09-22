@@ -41,6 +41,7 @@
     - [Cutcaptcha](#cutcaptcha)
     - [Tencent](#tencent)
     - [atbCAPTCHA](#atbcaptcha)
+    - [VK Captcha](#vk-captcha)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -476,6 +477,21 @@ result = client.atb_captcha({
 })
 ```
 
+### VK Captcha
+
+<sup>[API описание метода.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>
+
+Мы предлагаем два метода для устранения этого типа капчи - на основе токенов и на основе изображений.
+
+Мы используем текст (изображение в формате base64) или файл (изображение как файл) и параметры steps.
+Вы можете получить оба значения из ответа на запрос https://api.vk.com/method/captchaNotRobot.getContent?v={API_VER} при загрузке виджета captcha на страницу.
+
+```ruby
+result = client.vkcaptcha({
+  image: '/9j/4AAQSkZJRgABAQAAAQABAAD/2...',
+  steps: '[5,19,14,14,6,4,8...]'
+})
+```
 
 ## Другие методы
 
