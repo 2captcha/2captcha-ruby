@@ -44,6 +44,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Cutcaptcha](#cutcaptcha)
       - [Tencent](#tencent)
       - [atbCAPTCHA](#atbcaptcha)
+      - [VK Captcha](#vk-captcha)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -491,6 +492,22 @@ result = client.atb_captcha({
   app_id: "197326679",
   api_server: "api.atb_captcha.com",
   pageurl: "https://mysite.com/page/with/atb_captcha"
+})
+```
+
+### VK Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>
+
+We offer two methods to solve this type of captcha - token-based and image-based.
+
+We use the body (image in base64 format) or file (image as file) and steps parameters.
+You can get both values from the response to the request https://api.vk.com/method/captchaNotRobot.getContent?v={API_VER} when loading the captcha widget on the page.
+
+```ruby
+result = client.vkcaptcha({
+  image: '/9j/4AAQSkZJRgABAQAAAQABAAD/2...',
+  steps: '[5,19,14,14,6,4,8...]'
 })
 ```
 
