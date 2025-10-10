@@ -44,6 +44,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Cutcaptcha](#cutcaptcha)
       - [Tencent](#tencent)
       - [atbCAPTCHA](#atbcaptcha)
+      - [VK Image](#vk-image)
       - [VK Captcha](#vk-captcha)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
@@ -495,19 +496,30 @@ result = client.atb_captcha({
 })
 ```
 
-### VK Captcha
+### VK Image
 
-<sup>[API method description.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>
-
-We offer two methods to solve this type of captcha - token-based and image-based.
+<sup>[API method description.](https://2captcha.com/2captcha-api#vk-captcha)</sup>
 
 We use the body (image in base64 format) or file (image as file) and steps parameters.
 You can get both values from the response to the request https://api.vk.com/method/captchaNotRobot.getContent?v={API_VER} when loading the captcha widget on the page.
 
 ```ruby
-result = client.vkcaptcha({
+result = client.vkimage({
   image: '/9j/4AAQSkZJRgABAQAAAQABAAD/2...',
   steps: '[5,19,14,14,6,4,8...]'
+})
+```
+
+### VK Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#vk-captcha)</sup>
+
+Token-based method requires redirect_uri parameter, as well as proxy and userAgent. The value of the redirect_uri parameter can be found in the response to requests to the VK API that return captchas.
+
+```ruby
+result = client.vkcaptcha({
+  redirect_uri: 'https://id.vk.com/not_robot_captcha?domain=vk.com&session_token=eyJ....HGsc5B4LyvjA&variant=popup&blank=1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
 })
 ```
 

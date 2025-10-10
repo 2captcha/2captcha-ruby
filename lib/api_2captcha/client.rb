@@ -174,6 +174,10 @@ module Api2Captcha
       solve("vkimage", **params)
     end
 
+    def vkcaptcha(params)
+      solve("vkcaptcha", **params)
+    end
+
     def audio(params)
       audio = params.delete(:audio)
       audio_content = File.file?(audio) ? File.binread(audio) : audio
