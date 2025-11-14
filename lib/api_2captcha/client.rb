@@ -213,6 +213,10 @@ module Api2Captcha
       solve("atb_captcha", **params)
     end
 
+    def prosopo(params)
+      solve("prosopo", **params)
+    end
+
     private
 
     def base_url
