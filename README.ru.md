@@ -41,6 +41,7 @@
     - [Cutcaptcha](#cutcaptcha)
     - [Tencent](#tencent)
     - [atbCAPTCHA](#atbcaptcha)
+    - [Prosopo](#prosopo)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -476,6 +477,18 @@ result = client.atb_captcha({
 })
 ```
 
+### Prosopo
+
+<sup>[Описание метода API.](https://2captcha.com/2captcha-api#prosopo-procaptcha)</sup>
+
+Основанный на токенах метод автоматизированного решения капчи Prosopo.
+
+```ruby
+result = client.prosopo({
+  pageurl: "https://www.twickets.live/",
+  sitekey: "5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm"
+})
+```
 
 ## Другие методы
 

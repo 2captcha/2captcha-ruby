@@ -44,6 +44,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Cutcaptcha](#cutcaptcha)
       - [Tencent](#tencent)
       - [atbCAPTCHA](#atbcaptcha)
+      - [Prosopo](#prosopo)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -491,6 +492,19 @@ result = client.atb_captcha({
   app_id: "197326679",
   api_server: "api.atb_captcha.com",
   pageurl: "https://mysite.com/page/with/atb_captcha"
+})
+```
+
+### Prosopo
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#prosopo-procaptcha)</sup>
+
+Token-based method for automated solving of Prosopo.
+
+```ruby
+result = client.prosopo({
+  pageurl: "https://www.twickets.live/",
+  sitekey: "5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm"
 })
 ```
 
