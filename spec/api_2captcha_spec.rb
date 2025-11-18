@@ -49,7 +49,7 @@ RSpec.describe Api2Captcha do
     it 'should return a valid reCAPTCHA result' do
       url = 'https://2captcha.com/demo/recaptcha-v2'
       result = client.recaptcha_v2({
-        googlekey: "site_key",
+        googlekey: "6LfD3PIbAAAAAJs_eEHvoOl75_83eXSqpPSRFJ_u",
         pageurl: url,
         invisible: 1
       })
@@ -62,7 +62,7 @@ RSpec.describe Api2Captcha do
     it 'should return a valid reCAPTCHA result' do
       url = 'http://2captcha.com/demo/recaptcha-v3'
       result = client.recaptcha_v3({
-        googlekey: "site_key",
+        googlekey: "6LfD3PIbAAAAAJs_eEHvoOl75_83eXSqpPSRFJ_u",
         pageurl: url,
         version: 'v3',
         score: 0.3,
