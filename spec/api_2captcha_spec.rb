@@ -70,6 +70,18 @@ RSpec.describe Api2Captcha do
                                    })}.to raise_error(Api2Captcha::ApiException, "API Error: ERROR_WRONG_GOOGLEKEY")
     end
   end
-end
 
-#expect { my_instance.validate_age(-5) }.to raise_error(ArgumentError, "Age cannot be negative")
+    describe "#captchafox", :captchafox do
+    it "should raise error" do
+
+      expect{client.captchafox({
+        sitekey: "sk_vKdD8WGlPF5FKpRDs1U4qTuu6Jv0w---123",
+        pageurl: "https://sinscrire.gmx.fr/",
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        proxytype: "socks5",
+        proxy: "u37d88e6957ca05d6-zone-custom-region-fr:u37d88e6957ca05d6@118.193.59.17:10743"
+                                   })}.to raise_error(Api2Captcha::ApiException, "API Error: ERROR_CAPTCHA_UNSOLVABLE")
+    end
+  end
+
+end

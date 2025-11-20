@@ -217,6 +217,10 @@ module Api2Captcha
       solve("prosopo", **params)
     end
 
+    def captchafox(params)
+      solve("captchafox", **params)
+    end
+
     private
 
     def base_url
