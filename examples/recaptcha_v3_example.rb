@@ -10,17 +10,7 @@ result = client.recaptcha_v3({
                                score: 0.3,
                                action: "verify"
                              })
-rescue Api2Captcha::ValidationException => e
-    # invalid parameters passed
-    puts(e)
-rescue Api2Captcha::NetworkException => e
-    # network error occurred
-    puts(e)
-rescue Api2Captcha::ApiException => e
-    # api respond with error
-    puts(e)
-rescue Api2Captcha::TimeoutException => e
-    # captcha is not solved so far
+rescue StandardError => e
     puts(e)
 end
 
