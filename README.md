@@ -45,6 +45,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Tencent](#tencent)
       - [atbCAPTCHA](#atbcaptcha)
       - [Prosopo](#prosopo)
+      - [Captchafox](#captchafox)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -507,6 +508,23 @@ result = client.prosopo({
   sitekey: "5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm"
 })
 ```
+
+### Captchafox
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#captchafox)</sup>
+
+Token-based method for automated solving of Captchafox.
+
+```ruby
+  result = client.captchafox({
+        sitekey: "sitekey",
+        pageurl: "https://pageurl/",
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36",
+        proxytype: "socks5",
+        proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+               })
+```
+
 
 ## Other methods
 

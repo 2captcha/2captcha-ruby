@@ -42,6 +42,7 @@
     - [Tencent](#tencent)
     - [atbCAPTCHA](#atbcaptcha)
     - [Prosopo](#prosopo)
+    - [Captchafox](#captchafox)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -488,6 +489,22 @@ result = client.prosopo({
   pageurl: "https://www.twickets.live/",
   sitekey: "5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm"
 })
+```
+
+### Captchafox
+
+<sup>[Описание метода API.](https://2captcha.com/2captcha-api#captchafox)</sup>
+
+Основанный на токенах метод автоматизированного решения капчи Captchafox.
+
+```ruby
+  result = client.captchafox({
+        sitekey: "sitekey",
+        pageurl: "https://pageurl/",
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36",
+        proxytype: "socks5",
+        proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+               })
 ```
 
 ## Другие методы
