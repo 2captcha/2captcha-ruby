@@ -221,6 +221,9 @@ module Api2Captcha
       solve("captchafox", **params)
     end
 
+    def temu(params)
+      solve("temuimage", **params)
+    end
     private
 
     def base_url
