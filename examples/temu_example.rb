@@ -3,12 +3,17 @@ require_relative '../lib/api_2captcha'
 
 client =  Api2Captcha.new(ARGV[0])
 
+body = File.expand_path("../media/temu/body.png", FILE)
+part1 = File.expand_path("../media/temu/part1.png", FILE)
+part2 = File.expand_path("../media/temu/part2.png", FILE)
+part3 = File.expand_path("../media/temu/part3.png", FILE)
+
 begin
 result = client.temu({
-  body: "path/to/image.jpg",
-  part1: "path/to/part1.jpg",
-  part2: "path/to/part2.jpg",
-  part3: "path/to/part3.jpg",
+  body: body,
+  part1: part1,
+  part2: part2,
+  part3: part3,
 })
 rescue StandardError => e
     puts(e)
