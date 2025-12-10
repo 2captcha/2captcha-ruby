@@ -43,6 +43,7 @@
     - [atbCAPTCHA](#atbcaptcha)
     - [Prosopo](#prosopo)
     - [Captchafox](#captchafox)
+    - [Temu](#temu)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -505,6 +506,21 @@ result = client.prosopo({
         proxytype: "socks5",
         proxy: "proxyuser:strongPassword@123.123.123.123:3128"
                })
+```
+
+### Temu
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#temucaptcha)</sup>
+
+Основанный на токенах метод автоматизированного решения капчи Temu.
+
+```ruby
+result = client.temu({
+  body: bodyStr,
+  part1: part1Str,
+  part2: part2Str,
+  part3: part3Str,
+})
 ```
 
 ## Другие методы

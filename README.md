@@ -46,6 +46,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [atbCAPTCHA](#atbcaptcha)
       - [Prosopo](#prosopo)
       - [Captchafox](#captchafox)
+      - [Temu](#temu)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -523,6 +524,21 @@ Token-based method for automated solving of Captchafox.
         proxytype: "socks5",
         proxy: "proxyuser:strongPassword@123.123.123.123:3128"
                })
+```
+
+### Temu
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#temucaptcha)</sup>
+
+Token-based method for automated solving of Temu.
+
+```ruby
+result = client.temu({
+  body: bodyStr,
+  part1: part1Str,
+  part2: part2Str,
+  part3: part3Str,
+})
 ```
 
 
