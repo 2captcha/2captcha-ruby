@@ -1,0 +1,8 @@
+
+ruby examples/prosopo_example.rb API_KEY
+
+API_KEY=API_KEY_123 rspec spec/api_2captcha_spec.rb --tag recaptcha_v3
+
+rake spec
+rake -T
+ruby api_2captcha_spec.rb
