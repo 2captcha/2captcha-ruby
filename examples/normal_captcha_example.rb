@@ -1,11 +1,9 @@
 require 'api_2captcha'
 
-client =  Api2Captcha.new(ARGV[0])
-
-image_absolute_path = File.expand_path("../media/normal_2.jpg", __FILE__)
+client =  Api2Captcha.new("YOUR_API_KEY")
 
 result = client.normal({
-  image: image_absolute_path,
+  image: './media/normal_2.jpg',
 })
 
 puts "Result: #{result.inspect}"
