@@ -44,6 +44,7 @@
     - [Prosopo](#prosopo)
     - [Captchafox](#captchafox)
     - [Temu](#temu)
+    - [VK Captcha](#vk-captcha)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -520,6 +521,30 @@ result = client.temu({
   part1: part1Str,
   part2: part2Str,
   part3: part3Str,
+### VK Image
+
+<sup>[API описание метода.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>
+
+Мы используем текст (изображение в формате base64) или файл (изображение как файл) и параметры steps.
+Вы можете получить оба значения из ответа на запрос https://api.vk.com/method/captchaNotRobot.getContent?v={API_VER} при загрузке виджета captcha на страницу.
+
+```ruby
+result = client.vkimage({
+  image: '/9j/4AAQSkZJRgABAQAAAQABAAD/2...',
+  steps: '[5,19,14,14,6,4,8...]'
+})
+```
+
+### VK Captcha
+
+<sup>[API описание метода.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>
+
+Для метода, основанного на токенах, требуется параметр `redirect_uri`, а также прокси-сервер и UserAgent. Значение параметра `redirect_uri` можно найти в ответах на запросы к VK API, которые возвращают captcha.
+
+```ruby
+result = client.vkcaptcha({
+  redirect_uri: 'https://id.vk.com/not_robot_captcha?domain=vk.com&session_token=eyJ....HGsc5B4LyvjA&variant=popup&blank=1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
 })
 ```
 
