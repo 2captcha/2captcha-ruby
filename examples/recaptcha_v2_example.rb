@@ -1,6 +1,6 @@
 require 'api_2captcha'
 
-client =  Api2Captcha.new("YOUR_API_KEY")
+client =  Api2Captcha.new(ARGV[0])
 
 result = client.recaptcha_v2({
   googlekey: '6LfD3PIbAAAAAJs_eEHvoOl75_83eXSqpPSRFJ_u',

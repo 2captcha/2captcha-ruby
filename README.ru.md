@@ -41,6 +41,9 @@
     - [Cutcaptcha](#cutcaptcha)
     - [Tencent](#tencent)
     - [atbCAPTCHA](#atbcaptcha)
+    - [Prosopo](#prosopo)
+    - [Captchafox](#captchafox)
+    - [Temu](#temu)
     - [VK Captcha](#vk-captcha)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
@@ -477,6 +480,47 @@ result = client.atb_captcha({
 })
 ```
 
+### Prosopo
+
+<sup>[Описание метода API.](https://2captcha.com/2captcha-api#prosopo-procaptcha)</sup>
+
+Основанный на токенах метод автоматизированного решения капчи Prosopo.
+
+```ruby
+result = client.prosopo({
+  pageurl: "https://www.twickets.live/",
+  sitekey: "5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm"
+})
+```
+
+### Captchafox
+
+<sup>[Описание метода API.](https://2captcha.com/2captcha-api#captchafox)</sup>
+
+Основанный на токенах метод автоматизированного решения капчи Captchafox.
+
+```ruby
+  result = client.captchafox({
+        sitekey: "sitekey",
+        pageurl: "https://pageurl/",
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36",
+        proxytype: "socks5",
+        proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+               })
+```
+
+### Temu
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#temucaptcha)</sup>
+
+Основанный на токенах метод автоматизированного решения капчи Temu.
+
+```ruby
+result = client.temu({
+  body: bodyStr,
+  part1: part1Str,
+  part2: part2Str,
+  part3: part3Str,
 ### VK Image
 
 <sup>[API описание метода.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>

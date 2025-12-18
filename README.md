@@ -44,6 +44,9 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Cutcaptcha](#cutcaptcha)
       - [Tencent](#tencent)
       - [atbCAPTCHA](#atbcaptcha)
+      - [Prosopo](#prosopo)
+      - [Captchafox](#captchafox)
+      - [Temu](#temu)
       - [VK Image](#vk-image)
       - [VK Captcha](#vk-captcha)
     - [Other methods](#other-methods)
@@ -495,6 +498,51 @@ result = client.atb_captcha({
   pageurl: "https://mysite.com/page/with/atb_captcha"
 })
 ```
+
+### Prosopo
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#prosopo-procaptcha)</sup>
+
+Token-based method for automated solving of Prosopo.
+
+```ruby
+result = client.prosopo({
+  pageurl: "https://www.twickets.live/",
+  sitekey: "5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm"
+})
+```
+
+### Captchafox
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#captchafox)</sup>
+
+Token-based method for automated solving of Captchafox.
+
+```ruby
+  result = client.captchafox({
+        sitekey: "sitekey",
+        pageurl: "https://pageurl/",
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36",
+        proxytype: "socks5",
+        proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+               })
+```
+
+### Temu
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#temucaptcha)</sup>
+
+Token-based method for automated solving of Temu.
+
+```ruby
+result = client.temu({
+  body: bodyStr,
+  part1: part1Str,
+  part2: part2Str,
+  part3: part3Str,
+})
+```
+
 
 ### VK Image
 

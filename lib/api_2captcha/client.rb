@@ -221,6 +221,17 @@ module Api2Captcha
       solve("atb_captcha", **params)
     end
 
+    def prosopo(params)
+      solve("prosopo", **params)
+    end
+
+    def captchafox(params)
+      solve("captchafox", **params)
+    end
+
+    def temu(params)
+      solve("temuimage", **params)
+    end
     private
 
     def base_url
