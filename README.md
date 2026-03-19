@@ -522,6 +522,7 @@ Token-based method for automated solving of Captchafox.
   result = client.captchafox({
         sitekey: "sitekey",
         pageurl: "https://pageurl/",
+        api_server: "https://mam.example.com",
         userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36",
         proxytype: "socks5",
         proxy: "proxyuser:strongPassword@123.123.123.123:3128"
