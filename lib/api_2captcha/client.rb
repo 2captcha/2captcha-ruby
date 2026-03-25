@@ -229,6 +229,10 @@ module Api2Captcha
       solve("captchafox", **params)
     end
 
+    def altcha(params)
+      solve("altcha", **params)
+    end
+
     def temu(params)
       solve("temuimage", **params)
     end

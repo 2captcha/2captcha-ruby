@@ -45,6 +45,7 @@
     - [Captchafox](#captchafox)
     - [Temu](#temu)
     - [VK Captcha](#vk-captcha)
+    - [Altcha Captcha](#altcha-captcha)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -546,6 +547,20 @@ result = client.vkimage({
 result = client.vkcaptcha({
   redirect_uri: 'https://id.vk.com/not_robot_captcha?domain=vk.com&session_token=eyJ....HGsc5B4LyvjA&variant=popup&blank=1',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+})
+```
+
+### Altcha Captcha
+<sup>[Описание метода API](https://2captcha.com/2captcha-api#altchacaptcha)</sup>
+
+Используйте этот метод для решения капчи Altcha. В ответ возвращается токен.
+
+```ruby
+result = client.altcha({
+  pageurl: 'https://mysite.com/page/with/altcha',
+  challenge: '{"algorithm":"SHA-256","challenge":"a4c9d8e7f1b23a6c...","signature":"7b3e2a9d5c8f1046e2d91c3a..."}'
+  # или:
+  # challenge_url: 'https://example.com/altcha-challenge'
 })
 ```
 

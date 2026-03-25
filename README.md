@@ -49,6 +49,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Temu](#temu)
       - [VK Image](#vk-image)
       - [VK Captcha](#vk-captcha)
+      - [Altcha Captcha](#altcha-captcha)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -570,6 +571,20 @@ result = client.vkcaptcha({
   redirect_uri: 'https://id.vk.com/not_robot_captcha?domain=vk.com&session_token=eyJ....HGsc5B4LyvjA&variant=popup&blank=1',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
 })
+```
+
+### Altcha Captcha
+<sup>[API method description.](https://2captcha.com/2captcha-api#altchacaptcha)</sup>
+
+Use this method to solve Altcha Captcha. Returns a token.
+
+```ruby
+  result = client.altcha({
+    pageurl: 'https://mysite.com/page/with/altcha',
+    challenge: '{"algorithm":"SHA-256","challenge":"a4c9d8e7f1b23a6c...","signature":"7b3e2a9d5c8f1046e2d91c3a..."}'
+    # or:
+    # challenge_url: 'https://example.com/altcha-challenge'
+  })
 ```
 
 ## Other methods
