@@ -236,6 +236,11 @@ module Api2Captcha
     def temu(params)
       solve("temuimage", **params)
     end
+
+    def binance(params)
+      solve("binance", **params)
+    end
+    
     private
 
     def base_url

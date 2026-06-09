@@ -46,6 +46,7 @@
     - [Temu](#temu)
     - [VK Captcha](#vk-captcha)
     - [Altcha Captcha](#altcha-captcha)
+    - [Binancecaptcha](#binancecaptcha)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -561,6 +562,20 @@ result = client.altcha({
   challenge: '{"algorithm":"SHA-256","challenge":"a4c9d8e7f1b23a6c...","signature":"7b3e2a9d5c8f1046e2d91c3a..."}'
   # или:
   # challenge_url: 'https://example.com/altcha-challenge'
+})
+```
+
+### Binancecaptcha
+
+<sup>[Описание метода API](https://2captcha.com/2captcha-api#binance)</sup>
+
+Используйте этот метод для решения капчи Binancecaptcha. В ответ возвращается токен.
+
+```ruby
+result = client.binance({
+          sitekey => "login",
+          url     => "https://example.com/page-with-binance",
+          validate_id => "cb0bfef...e54ecd57b"
 })
 ```
 
