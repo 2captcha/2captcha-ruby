@@ -240,7 +240,11 @@ module Api2Captcha
     def binance(params)
       solve("binance", **params)
     end
-    
+
+    def hunt(params)
+      solve("hunt", **params)
+    end
+
     private
 
     def base_url

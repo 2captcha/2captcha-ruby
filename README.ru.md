@@ -47,6 +47,7 @@
     - [VK Captcha](#vk-captcha)
     - [Altcha Captcha](#altcha-captcha)
     - [Binancecaptcha](#binancecaptcha)
+    - [Hunt Captcha](#hunt-captcha)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -576,6 +577,25 @@ result = client.binance({
           sitekey => "login",
           url     => "https://example.com/page-with-binance",
           validate_id => "cb0bfef...e54ecd57b"
+})
+```
+
+### Hunt Captcha
+
+<sup>[Описание метода API](https://2captcha.com/2captcha-api#hunt)</sup>
+
+Основанный на токенах метод автоматизированного решения Hunt captcha. Использует двухшаговый процесс: первый запрос без `data` возвращает X-HD fingerprint; после отправки его на сайт и получения `meta.token` второй запрос с `data` возвращает финальный токен.
+
+> [!IMPORTANT]
+> Для решения Hunt captcha необходимо использовать прокси. Рекомендуется использовать [резидентные прокси].
+
+```ruby
+result = client.hunt({
+  pageurl: "https://example.com/page-with-hunt",
+  api_get_lib: "https://example.com/hd-api/external/apps/app-id/api.js",
+  userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+  proxytype: "http",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
 })
 ```
 

@@ -85,4 +85,17 @@ RSpec.describe Api2Captcha do
     end
   end
 
+  describe "#hunt", :hunt do
+    it "should raise error" do
+      expect {
+        client.hunt({
+          pageurl: "https://example.com/page-with-hunt",
+          api_get_lib: "https://example.com/hd-api/invalid/api.js",
+          proxytype: "http",
+          proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+        })
+      }.to raise_error(Api2Captcha::ApiException)
+    end
+  end
+
 end

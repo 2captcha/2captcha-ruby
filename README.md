@@ -50,6 +50,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [VK Image](#vk-image)
       - [VK Captcha](#vk-captcha)
       - [Altcha Captcha](#altcha-captcha)
+      - [Hunt Captcha](#hunt-captcha)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -585,6 +586,25 @@ Use this method to solve Altcha Captcha. Returns a token.
     # or:
     # challenge_url: 'https://example.com/altcha-challenge'
   })
+```
+
+### Hunt Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#hunt)</sup>
+
+Token-based method for automated solving of Hunt captcha. Uses a two-step workflow: the first request without `data` returns an X-HD fingerprint; after sending it to the site and receiving `meta.token`, a second request with `data` returns the final token.
+
+> [!IMPORTANT]
+> To solve the Hunt captcha, you must use a proxy. It is recommended to use [residential proxies].
+
+```ruby
+result = client.hunt({
+  pageurl: "https://example.com/page-with-hunt",
+  api_get_lib: "https://example.com/hd-api/external/apps/app-id/api.js",
+  userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+  proxytype: "http",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
 ```
 
 ## Other methods
