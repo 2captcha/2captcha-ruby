@@ -123,4 +123,16 @@ RSpec.describe Api2Captcha do
     end
   end
 
+  describe "#alibaba", :alibaba do
+    it "should raise error" do
+      expect {
+        client.alibaba({
+          pageurl: "https://example.com/page-with-alibaba",
+          scene_id: "invalid",
+          prefix: "invalid"
+        })
+      }.to raise_error(Api2Captcha::ApiException)
+    end
+  end
+
 end

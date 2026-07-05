@@ -50,6 +50,7 @@
     - [Hunt Captcha](#hunt-captcha)
     - [Tspd](#tspd)
     - [Basilisk](#basilisk)
+    - [Alibaba](#alibaba)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -631,6 +632,20 @@ result = client.tspd({
 result = client.basilisk({
   pageurl: "https://example.com/page-with-basilisk",
   sitekey: "SITE_KEY"
+})
+```
+
+### Alibaba
+
+<sup>[Описание метода API](https://2captcha.com/2captcha-api#alibaba)</sup>
+
+Основанный на токенах метод автоматизированного решения капчи Alibaba.
+
+```ruby
+result = client.alibaba({
+  pageurl: "https://example.com/page-with-alibaba",
+  scene_id: "SCENE_ID",
+  prefix: "PREFIX"
 })
 ```
 

@@ -53,6 +53,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Hunt Captcha](#hunt-captcha)
       - [Tspd](#tspd)
       - [Basilisk](#basilisk)
+      - [Alibaba](#alibaba)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -639,6 +640,20 @@ Token-based method for automated solving of Basilisk captcha.
 result = client.basilisk({
   pageurl: "https://example.com/page-with-basilisk",
   sitekey: "SITE_KEY"
+})
+```
+
+### Alibaba
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#alibaba)</sup>
+
+Token-based method for automated solving of Alibaba captcha.
+
+```ruby
+result = client.alibaba({
+  pageurl: "https://example.com/page-with-alibaba",
+  scene_id: "SCENE_ID",
+  prefix: "PREFIX"
 })
 ```
 

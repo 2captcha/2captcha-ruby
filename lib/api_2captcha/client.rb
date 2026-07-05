@@ -253,6 +253,10 @@ module Api2Captcha
       solve("basilisk", **params)
     end
 
+    def alibaba(params)
+      solve("alibaba", **params)
+    end
+
     private
 
     def base_url
