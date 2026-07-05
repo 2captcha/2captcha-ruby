@@ -249,6 +249,10 @@ module Api2Captcha
       solve("tspd", **params)
     end
 
+    def basilisk(params)
+      solve("basilisk", **params)
+    end
+
     private
 
     def base_url

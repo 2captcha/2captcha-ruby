@@ -52,6 +52,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Altcha Captcha](#altcha-captcha)
       - [Hunt Captcha](#hunt-captcha)
       - [Tspd](#tspd)
+      - [Basilisk](#basilisk)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -625,6 +626,19 @@ result = client.tspd({
   userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
   proxytype: "http",
   proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
+```
+
+### Basilisk
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#basilisk)</sup>
+
+Token-based method for automated solving of Basilisk captcha.
+
+```ruby
+result = client.basilisk({
+  pageurl: "https://example.com/page-with-basilisk",
+  sitekey: "SITE_KEY"
 })
 ```
 

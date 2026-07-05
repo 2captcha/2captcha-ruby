@@ -112,4 +112,15 @@ RSpec.describe Api2Captcha do
     end
   end
 
+  describe "#basilisk", :basilisk do
+    it "should raise error" do
+      expect {
+        client.basilisk({
+          pageurl: "https://example.com/page-with-basilisk",
+          sitekey: "invalid"
+        })
+      }.to raise_error(Api2Captcha::ApiException)
+    end
+  end
+
 end

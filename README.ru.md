@@ -49,6 +49,7 @@
     - [Binancecaptcha](#binancecaptcha)
     - [Hunt Captcha](#hunt-captcha)
     - [Tspd](#tspd)
+    - [Basilisk](#basilisk)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -617,6 +618,19 @@ result = client.tspd({
   userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
   proxytype: "http",
   proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
+```
+
+### Basilisk
+
+<sup>[Описание метода API](https://2captcha.com/2captcha-api#basilisk)</sup>
+
+Основанный на токенах метод автоматизированного решения капчи Basilisk.
+
+```ruby
+result = client.basilisk({
+  pageurl: "https://example.com/page-with-basilisk",
+  sitekey: "SITE_KEY"
 })
 ```
 
