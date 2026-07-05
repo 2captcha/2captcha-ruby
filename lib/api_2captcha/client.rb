@@ -245,6 +245,10 @@ module Api2Captcha
       solve("hunt", **params)
     end
 
+    def tspd(params)
+      solve("tspd", **params)
+    end
+
     private
 
     def base_url

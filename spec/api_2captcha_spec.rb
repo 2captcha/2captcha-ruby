@@ -98,4 +98,18 @@ RSpec.describe Api2Captcha do
     end
   end
 
+  describe "#tspd", :tspd do
+    it "should raise error" do
+      expect {
+        client.tspd({
+          pageurl: "https://example.com/page-with-tspd",
+          tspd_cookie: "TS...",
+          html_page_base64: "PGh0bWw+...",
+          proxytype: "http",
+          proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+        })
+      }.to raise_error(Api2Captcha::ApiException)
+    end
+  end
+
 end

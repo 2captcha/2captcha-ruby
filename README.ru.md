@@ -48,6 +48,7 @@
     - [Altcha Captcha](#altcha-captcha)
     - [Binancecaptcha](#binancecaptcha)
     - [Hunt Captcha](#hunt-captcha)
+    - [Tspd](#tspd)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -593,6 +594,26 @@ result = client.binance({
 result = client.hunt({
   pageurl: "https://example.com/page-with-hunt",
   api_get_lib: "https://example.com/hd-api/external/apps/app-id/api.js",
+  userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+  proxytype: "http",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
+```
+
+### Tspd
+
+<sup>[Описание метода API](https://2captcha.com/2captcha-api#tspd)</sup>
+
+Используйте этот метод для решения капчи TSPD. В ответ возвращаются cookies. Прокси обязателен — режима без прокси не существует.
+
+> [!IMPORTANT]
+> Для решения TSPD captcha необходимо использовать прокси. Один и тот же IP-адрес должен использоваться на всех этапах: получение cookies, решение задачи и использование результата.
+
+```ruby
+result = client.tspd({
+  pageurl: "https://example.com/page-with-tspd",
+  tspd_cookie: "TS...",
+  html_page_base64: "PGh0bWw+...",
   userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
   proxytype: "http",
   proxy: "proxyuser:strongPassword@123.123.123.123:3128"

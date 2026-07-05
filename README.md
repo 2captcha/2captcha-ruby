@@ -51,6 +51,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [VK Captcha](#vk-captcha)
       - [Altcha Captcha](#altcha-captcha)
       - [Hunt Captcha](#hunt-captcha)
+      - [Tspd](#tspd)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -601,6 +602,26 @@ Token-based method for automated solving of Hunt captcha. Uses a two-step workfl
 result = client.hunt({
   pageurl: "https://example.com/page-with-hunt",
   api_get_lib: "https://example.com/hd-api/external/apps/app-id/api.js",
+  userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+  proxytype: "http",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+})
+```
+
+### Tspd
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#tspd)</sup>
+
+Use this method to solve TSPD captcha. Returns cookies. A proxy is required — there is no proxyless variant.
+
+> [!IMPORTANT]
+> To solve the TSPD captcha, you must use a proxy. The same outbound IP address must be maintained across all stages: getting cookies, solving the task, and using the result.
+
+```ruby
+result = client.tspd({
+  pageurl: "https://example.com/page-with-tspd",
+  tspd_cookie: "TS...",
+  html_page_base64: "PGh0bWw+...",
   userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
   proxytype: "http",
   proxy: "proxyuser:strongPassword@123.123.123.123:3128"
