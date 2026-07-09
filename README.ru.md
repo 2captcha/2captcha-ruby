@@ -51,6 +51,7 @@
     - [Tspd](#tspd)
     - [Basilisk](#basilisk)
     - [Alibaba](#alibaba)
+    - [Yidun](#yidun)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -646,6 +647,19 @@ result = client.alibaba({
   pageurl: "https://example.com/page-with-alibaba",
   scene_id: "SCENE_ID",
   prefix: "PREFIX"
+})
+```
+
+### Yidun
+
+<sup>[Описание метода API](https://2captcha.com/2captcha-api#yidun)</sup>
+
+Основанный на токенах метод автоматизированного решения капчи Yidun.
+
+```ruby
+result = client.yidun({
+  pageurl: "https://example.com/page-with-yidun",
+  sitekey: "SITE_KEY"
 })
 ```
 

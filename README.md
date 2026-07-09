@@ -54,6 +54,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Tspd](#tspd)
       - [Basilisk](#basilisk)
       - [Alibaba](#alibaba)
+      - [Yidun](#yidun)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -654,6 +655,19 @@ result = client.alibaba({
   pageurl: "https://example.com/page-with-alibaba",
   scene_id: "SCENE_ID",
   prefix: "PREFIX"
+})
+```
+
+### Yidun
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#yidun)</sup>
+
+Token-based method for automated solving of Yidun captcha.
+
+```ruby
+result = client.yidun({
+  pageurl: "https://example.com/page-with-yidun",
+  sitekey: "SITE_KEY"
 })
 ```
 

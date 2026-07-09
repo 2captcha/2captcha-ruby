@@ -135,4 +135,15 @@ RSpec.describe Api2Captcha do
     end
   end
 
+  describe "#yidun", :yidun do
+    it "should raise error" do
+      expect {
+        client.yidun({
+          pageurl: "https://example.com/page-with-yidun",
+          sitekey: "invalid"
+        })
+      }.to raise_error(Api2Captcha::ApiException)
+    end
+  end
+
 end

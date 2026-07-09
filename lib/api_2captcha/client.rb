@@ -257,6 +257,10 @@ module Api2Captcha
       solve("alibaba", **params)
     end
 
+    def yidun(params)
+      solve("yidun", **params)
+    end
+
     private
 
     def base_url
