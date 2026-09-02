@@ -52,6 +52,7 @@
     - [Basilisk](#basilisk)
     - [Alibaba](#alibaba)
     - [Yidun](#yidun)
+    - [Drag & Drop Captcha](#drag--drop-captcha)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -660,6 +661,22 @@ result = client.alibaba({
 result = client.yidun({
   pageurl: "https://example.com/page-with-yidun",
   sitekey: "SITE_KEY"
+})
+```
+
+### Drag & Drop Captcha
+
+<sup>[Описание метода API](https://2captcha.com/2captcha-api#drag-and-drop-captcha)</sup>
+
+Используйте этот метод для решения капч, где одну или несколько картинок нужно перетащить на определённые позиции фонового изображения. `body` — фоновое изображение, `images` — массив изображений для перетаскивания, оба в Base64 — файлы нужно прочитать и закодировать самостоятельно, как показано ниже. Порядок `images` важен: в ответе используется тот же порядок.
+
+В ответе приходит строка с координатами для каждой картинки из `images`, разделёнными `|`. Если картинку двигать не нужно, для неё возвращается буквальное значение `null`.
+
+```ruby
+result = client.drag_drop({
+  body: bodyStr,
+  images: [image1Str, image2Str],
+  textinstructions: "Drag the images to proper position"
 })
 ```
 

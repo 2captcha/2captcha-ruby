@@ -146,4 +146,15 @@ RSpec.describe Api2Captcha do
     end
   end
 
+  describe "#drag_drop", :drag_drop do
+    it "should raise error" do
+      expect {
+        client.drag_drop({
+          body: "invalid",
+          images: ["invalid"]
+        })
+      }.to raise_error(Api2Captcha::ApiException)
+    end
+  end
+
 end

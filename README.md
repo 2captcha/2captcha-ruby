@@ -55,6 +55,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Basilisk](#basilisk)
       - [Alibaba](#alibaba)
       - [Yidun](#yidun)
+      - [Drag & Drop Captcha](#drag--drop-captcha)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -668,6 +669,22 @@ Token-based method for automated solving of Yidun captcha.
 result = client.yidun({
   pageurl: "https://example.com/page-with-yidun",
   sitekey: "SITE_KEY"
+})
+```
+
+### Drag & Drop Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#drag-and-drop-captcha)</sup>
+
+Use this method to solve captchas where one or more images need to be dragged onto specific positions of a background image. `body` is the background image and `images` is an array of the images to drag onto it, both Base64-encoded — read the files and encode them yourself, as shown below. The order of `images` matters: the result uses the same order.
+
+The result is a string with coordinates for each image from `images`, separated by `|`. An image that doesn't need to be moved comes back as the literal string `null`.
+
+```ruby
+result = client.drag_drop({
+  body: bodyStr,
+  images: [image1Str, image2Str],
+  textinstructions: "Drag the images to proper position"
 })
 ```
 

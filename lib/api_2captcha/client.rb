@@ -261,6 +261,10 @@ module Api2Captcha
       solve("yidun", **params)
     end
 
+    def drag_drop(params)
+      solve("drag_drop", **params)
+    end
+
     private
 
     def base_url
