@@ -1,12 +1,36 @@
 require_relative "../lib/api_2captcha"
 
-client = Api2Captcha.new(ARGV[0])
+key = ARGV[0]
 
-client = Api2Captcha.generic_client("YOUR_API_KEY")
+client = Api2Captcha.generic_client(key)
 
-result = client.text({
-                       textcaptcha: "If tomorrow is Saturday, what day is today?",
-                       lang: "en"
-                     })
+data = {
+  clientKey: key,
+  languagePool: "en",
+  task: [
+    type: "TextCaptchaTask",
+    comment: "If tomorrow is Saturday, what day is today?"
+  ]
+}
+
+result = client.solve(data)
 
 puts "Result: #{result.inspect}"
+
+#    private void resolve(){
+#         JSONObject innerJsonObject = new JSONObject()
+#                 .put("type", "TextCaptchaTask")
+#                 .put("comment", "If tomorrow is Saturday, what day is today?");
+#
+#         JSONObject jsonObject = new JSONObject();
+#         jsonObject.put("clientKey", this.key);
+#         jsonObject.put("languagePool", "en");
+#         jsonObject.put("task", innerJsonObject);
+#
+#         try {
+#             JSONObject resultJsonObject = apiClient.solve(jsonObject);
+#             System.out.println("Result: " + resultJsonObject.toString());
+#         } catch (Exception e) {
+#             System.out.println("Error occurred: " + e.getMessage());
+#         }
+#     }
