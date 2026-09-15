@@ -7,10 +7,10 @@ client = Api2Captcha.generic_client(key)
 data = {
   clientKey: key,
   languagePool: "en",
-  task: [
+  task: {
     type: "TextCaptchaTask",
     comment: "If tomorrow is Saturday, what day is today?"
-  ]
+  }
 }
 
 result = client.solve(data)

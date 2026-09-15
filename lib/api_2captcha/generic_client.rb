@@ -10,7 +10,7 @@ module Api2Captcha
   class GenericClient
 
         attr_accessor :domain, :callback, :default_timeout, :recaptcha_timeout, :polling_interval, :api_key, :soft_id,
-                  :createTaskUri, :getTaskResultUri, :getBalanceUri, :reportCorrectUri, :reportIncorrectUri
+                  :createTaskUri, :getTaskResultUri, :getBalanceUri, :reportCorrectUri, :reportIncorrectUri, :taskId
 
 
 
@@ -23,6 +23,7 @@ module Api2Captcha
       @recaptcha_timeout = 600
       @polling_interval = 10
       @soft_id = 4584
+      @taskId = -1
       @createTaskUri = "https://api.rucaptcha.com/createTask"
       @getTaskResultUri = "https://api.rucaptcha.com/getTaskResult"
       @getBalanceUri = "https://api.rucaptcha.com/getBalance"
@@ -32,13 +33,26 @@ module Api2Captcha
 
     def solve(data)
       data[:softId] = soft_id
-       response = createTask(data)
-      #JSONObject responseJsonObject = createTask(jsonObject);
-      #if (jsonObject.getJSONObject("task").has("callbackUrl")
-      #          && !jsonObject.getJSONObject("task").getString("callbackUrl").isEmpty())
-      #      return responseJsonObject;
-      #  return getTaskResult(this.taskId);
+       
+      responseJsonObject = createTask(data)
+      @taskId = responseJsonObject["taskId"];
+      return getTaskResult(taskId)
+    end
 
+    def getTaskResult(taskId)
+        puts "getTaskResult"
+        startedAt = Time.now
+
+        jsonObject = {
+          clientKey: key,
+          taskId: taskId
+        }
+
+        requestNum = 0;
+        loop do
+          
+        end
+        #return doRequest(createTaskUri, data);
     end
 
     def createTask(data)
@@ -47,11 +61,28 @@ module Api2Captcha
     end
 
     def doRequest(uri, data)
+      uri = URI.parse(uri)
+
+      headers = { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
       
+      begin
+        response = Net::HTTP.post(uri, data.to_json, headers)
+      rescue StandardError => e
+        puts "Something went wrong: #{e.message}"
+      end
+
+      puts "Status: #{response.code}"
+      puts "Body: #{response.body}"
+
+      return JSON.parse(response.body)
+      #return response
     end
     
   end
 end
+
+
+
 
 =begin
 #         private JSONObject doRequest(String uri, JSONObject jsonObject) throws Exception {
@@ -98,6 +129,4 @@ else
   puts "Error: #{response.code} - #{response.message}"
 end
 
-
-=
-end
+=end
