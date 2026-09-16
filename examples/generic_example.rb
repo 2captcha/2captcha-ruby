@@ -13,7 +13,11 @@ data = {
   }
 }
 
-result = client.solve(data)
+begin
+  result = client.solve(data)
+rescue StandardError => e
+  puts "Error occurred: #{e.message}"
+end
 
 puts "Result: #{result.inspect}"
 

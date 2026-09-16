@@ -33,6 +33,7 @@ module Api2Captcha
       responseJsonObject = createTask(data)
       @taskId = responseJsonObject["taskId"];
       return getTaskResult(taskId)
+      
     end
 
     def getTaskResult(taskId)
@@ -57,7 +58,8 @@ module Api2Captcha
           #      break;
           #  }
         end
-      raise Exception, "Timeout #{timeout} seconds reached"
+ 
+      raise StandardError, "Timeout #{timeout} seconds reached"
     end
 
     def createTask(data)
