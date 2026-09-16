@@ -52,11 +52,21 @@ module Api2Captcha
           else 
             break
           end
-          #if (now - startedAt < this.timeout) {
-          #      Thread.sleep(this.pollingInterval * 1000);
-          #  } else {
-          #      break;
-          #  }
+          
+          puts "GetTaskResult Request N:  #{requestNum += 1}"
+          jsonObjectResponse = doRequest(getTaskResultUri, jsonObject);
+
+          if(jsonObjectResponse.key?("errorId") && jsonObjectResponse["errorId"] > 0)
+            return jsonObjectResponse
+          end
+
+          status = jsonObjectResponse["status"]
+          if(status.eql? "ready" => true)
+            return jsonObjectResponse
+          end
+
+          puts "temp"
+
         end
  
       raise StandardError, "Timeout #{timeout} seconds reached"
@@ -82,7 +92,7 @@ module Api2Captcha
       puts "Body: #{response.body}"
 
       return JSON.parse(response.body)
-      #return response
+
     end
     
   end

@@ -20,21 +20,3 @@ rescue StandardError => e
 end
 
 puts "Result: #{result.inspect}"
-
-#    private void resolve(){
-#         JSONObject innerJsonObject = new JSONObject()
-#                 .put("type", "TextCaptchaTask")
-#                 .put("comment", "If tomorrow is Saturday, what day is today?");
-#
-#         JSONObject jsonObject = new JSONObject();
-#         jsonObject.put("clientKey", this.key);
-#         jsonObject.put("languagePool", "en");
-#         jsonObject.put("task", innerJsonObject);
-#
-#         try {
-#             JSONObject resultJsonObject = apiClient.solve(jsonObject);
-#             System.out.println("Result: " + resultJsonObject.toString());
-#         } catch (Exception e) {
-#             System.out.println("Error occurred: " + e.getMessage());
-#         }
-#     }
