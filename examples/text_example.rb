@@ -1,10 +1,10 @@
-require 'api_2captcha'
+require "api_2captcha"
 
-client =  Api2Captcha.new("YOUR_API_KEY")
+client = Api2Captcha.new(ARGV[0])
 
 result = client.text({
-  textcaptcha:'If tomorrow is Saturday, what day is today?',
-  lang: "en"
-})
+                       textcaptcha: "If tomorrow is Saturday, what day is today?",
+                       lang: "en"
+                     })
 
 puts "Result: #{result.inspect}"

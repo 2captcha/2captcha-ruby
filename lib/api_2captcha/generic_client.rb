@@ -9,17 +9,13 @@ require "open-uri"
 module Api2Captcha
   class GenericClient
 
-        attr_accessor :domain, :callback, :default_timeout, :recaptcha_timeout, :polling_interval, :api_key, :soft_id,
+        attr_accessor :domain, :callback, :timeout, :recaptcha_timeout, :polling_interval, :apiKey, :soft_id,
                   :createTaskUri, :getTaskResultUri, :getBalanceUri, :reportCorrectUri, :reportIncorrectUri, :taskId
 
-
-
-
-
-    def initialize(api_key)
-      @api_key = api_key
+    def initialize(apiKey)
+      @apiKey = apiKey
       @callback = callback
-      @default_timeout = 120
+      @timeout = 120
       @recaptcha_timeout = 600
       @polling_interval = 10
       @soft_id = 4584
@@ -44,15 +40,24 @@ module Api2Captcha
         startedAt = Time.now
 
         jsonObject = {
-          clientKey: key,
+          clientKey: apiKey,
           taskId: taskId
         }
 
         requestNum = 0;
         loop do
-          
+          if ((Time.now - startedAt).to_i < timeout)   #Time.now - start_time > default_timeout
+            sleep(polling_interval)
+          else 
+            break
+          end
+          #if (now - startedAt < this.timeout) {
+          #      Thread.sleep(this.pollingInterval * 1000);
+          #  } else {
+          #      break;
+          #  }
         end
-        #return doRequest(createTaskUri, data);
+      raise Exception, "Timeout #{timeout} seconds reached"
     end
 
     def createTask(data)
