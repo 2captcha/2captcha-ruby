@@ -47,7 +47,7 @@ module Api2Captcha
 
         requestNum = 0;
         loop do
-          if ((Time.now - startedAt).to_i < timeout)   #Time.now - start_time > default_timeout
+          if ((Time.now - startedAt).to_i < timeout)
             sleep(polling_interval)
           else 
             break
@@ -61,11 +61,9 @@ module Api2Captcha
           end
 
           status = jsonObjectResponse["status"]
-          if(status.eql? "ready" => true)
+          if(status.eql?("ready"))
             return jsonObjectResponse
           end
-
-          puts "temp"
 
         end
  
