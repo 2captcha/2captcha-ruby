@@ -92,6 +92,11 @@ module Api2Captcha
       return JSON.parse(response.body)
 
     end
+
+    def getBalance(data)
+        puts "Balance Request"
+        return doRequest(getBalanceUri, data);
+    end
     
   end
 end

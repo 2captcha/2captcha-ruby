@@ -4,7 +4,7 @@ key = ARGV[0]
 
 client = Api2Captcha.generic_client(key)
 
-data = {
+captcha_params = {
   clientKey: key,
   languagePool: "en",
   task: {
@@ -14,7 +14,19 @@ data = {
 }
 
 begin
-  result = client.solve(data)
+  result = client.solve(captcha_params)
+rescue StandardError => e
+  puts "Error occurred: #{e.message}"
+end
+
+puts "Result: #{result.inspect}"
+
+# get balance
+balance_params = {
+  clientKey: key
+}
+begin
+  result = client.getBalance(balance_params)
 rescue StandardError => e
   puts "Error occurred: #{e.message}"
 end
