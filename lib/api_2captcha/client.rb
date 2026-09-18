@@ -1,9 +1,10 @@
 # frozen_string_literal: true
-require 'net/http'
-require 'uri'
-require 'json'
-require 'base64'
-require 'open-uri'
+
+require "net/http"
+require "uri"
+require "json"
+require "base64"
+require "open-uri"
 
 module Api2Captcha
   class Client
@@ -42,12 +43,15 @@ module Api2Captcha
       complete_params = get_params(params)
       captcha_id = send_request(complete_params)
       return captcha_id if return_id
+
       get_result(captcha_id)
     end
 
     def send(*args)
-      raise ArgumentError,
-      "Invalid arguments of the send method" unless args.size == 1
+      unless args.size == 1
+        raise ArgumentError,
+              "Invalid arguments of the send method"
+      end
 
       arg = args.first
       if arg.is_a?(String)
@@ -94,7 +98,7 @@ module Api2Captcha
 
     def get_balance
       response = make_res_request({ "action" => "getbalance" }, "getbalance")
-      return response["request"].to_f
+      response["request"].to_f
     end
 
     def normal(params)
@@ -274,7 +278,7 @@ module Api2Captcha
     def send_request(params)
       uri = URI("#{base_url}/in.php")
       req = Net::HTTP::Post.new(uri)
-      req.content_type = 'application/json'
+      req.content_type = "application/json"
       req.body = params.to_json
       captcha_id = get_captcha_id(make_request(uri, req))
     end
@@ -288,14 +292,14 @@ module Api2Captcha
       hint_image = params.delete("hint_image")
 
       image_content = if base64_encoded?(image)
-        image
-      else
-        Base64.strict_encode64(get_image_content(image))
-      end
+                        image
+                      else
+                        Base64.strict_encode64(get_image_content(image))
+                      end
 
       hint_image_content = if hint_image
-                  base64_encoded?(hint_image) ? hint_image : Base64.strict_encode64(get_image_content(hint_image))
-                  end
+                             base64_encoded?(hint_image) ? hint_image : Base64.strict_encode64(get_image_content(hint_image))
+                           end
 
       result_params = {
         "method" => "base64",
@@ -309,20 +313,20 @@ module Api2Captcha
     end
 
     def get_image_content(image)
-      return download_image(image) if image.start_with?('http')
+      return download_image(image) if image.start_with?("http")
       return File.binread(image) if File.file?(image)
+
       image
     end
 
     def base64_encoded?(string)
-      string.is_a?(String) && string.match(/\A[A-Za-z0-9+\/=]+\z/) && (string.length % 4).zero?
+      string.is_a?(String) && string.match(%r{\A[A-Za-z0-9+/=]+\z}) && (string.length % 4).zero?
     end
 
     def download_image(url)
       response = URI.open(url)
-      if response.status[0] != '200'
-        raise StandardError, "File could not be downloaded from url: #{url}"
-      end
+      raise StandardError, "File could not be downloaded from url: #{url}" if response.status[0] != "200"
+
       response.read
     end
 
@@ -336,11 +340,10 @@ module Api2Captcha
       case response
       when Net::HTTPSuccess
         response_json = JSON.parse(response.body.strip)
-        if response_json["status"] == 1
-          response_json["request"]
-        else
-          raise ApiException, "API Error: #{response_json["request"]}"
-        end
+        raise ApiException, "API Error: #{response_json["request"]}" unless response_json["status"] == 1
+
+        response_json["request"]
+
       else
         raise NetworkException, "Network Error: #{response.code.to_i}"
       end
@@ -361,19 +364,17 @@ module Api2Captcha
     def make_res_request(request, action)
       uri = URI("#{base_url}/res.php?key=#{@api_key}&action=#{action}&json=1")
       req = Net::HTTP::Post.new(uri)
-      req.content_type = 'application/json'
+      req.content_type = "application/json"
       req.body = request.to_json
 
       response = make_request(uri, req)
 
       case response
       when Net::HTTPSuccess
-        return JSON.parse(response.body)
+        JSON.parse(response.body)
       else
         raise Api2Captcha::NetworkException, "Network Error: #{response.code.to_i}"
       end
     end
   end
 end
-
-
