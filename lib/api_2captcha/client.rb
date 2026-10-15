@@ -269,6 +269,10 @@ module Api2Captcha
       solve("drag_drop", **params)
     end
 
+    def imperva(params)
+      solve("incapsula", **params)
+    end
+
     private
 
     def base_url

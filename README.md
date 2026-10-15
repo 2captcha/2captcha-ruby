@@ -56,6 +56,7 @@ Examples of API requests for different captcha types are available on the [Ruby 
       - [Alibaba](#alibaba)
       - [Yidun](#yidun)
       - [Drag & Drop Captcha](#drag--drop-captcha)
+      - [Imperva (Incapsula)](#imperva-incapsula)
     - [Other methods](#other-methods)
       - [send / get_result](#send--get_result)
       - [balance](#balance)
@@ -685,6 +686,29 @@ result = client.drag_drop({
   body: bodyStr,
   images: [image1Str, image2Str],
   textinstructions: "Drag the images to proper position"
+})
+```
+
+### Imperva (Incapsula)
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#imperva)</sup>
+
+Cookie-based method for automated solving of Imperva (Incapsula) captcha. `incapsula_script_url` and `incapsula_cookies` are generated dynamically and may differ on each page load. Optionally pass `reese84_url_endpoint` if the site uses Reese84, and `userAgent` of the browser that opens the page.
+
+The result contains cookies for each domain in `request.domains`, which should be sent to the target site. If `request.headers.User-Agent` is returned, use the same User-Agent in requests to the site.
+
+> [!IMPORTANT]
+> To solve the Imperva captcha, you must use a proxy. It is recommended to use [residential proxies].
+
+```ruby
+result = client.imperva({
+  pageurl: "https://example.com/page-with-imperva",
+  incapsula_script_url: "/_Incapsula_Resource?SWUDNSAI=31&xinfo=1",
+  incapsula_cookies: "visid_incap_123456=sample; incap_ses_123_123456=sample",
+  reese84_url_endpoint: "https://example.com/_Incapsula_Resource?reese84=1",
+  userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+  proxytype: "http",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
 })
 ```
 

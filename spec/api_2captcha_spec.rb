@@ -157,4 +157,18 @@ RSpec.describe Api2Captcha do
     end
   end
 
+  describe "#imperva", :imperva do
+    it "should raise error" do
+      expect {
+        client.imperva({
+          pageurl: "https://example.com/page-with-imperva",
+          incapsula_script_url: "invalid",
+          incapsula_cookies: "invalid",
+          proxytype: "http",
+          proxy: "proxyuser:strongPassword@123.123.123.123:3128"
+        })
+      }.to raise_error(Api2Captcha::ApiException)
+    end
+  end
+
 end

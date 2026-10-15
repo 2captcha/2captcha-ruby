@@ -53,6 +53,7 @@
     - [Alibaba](#alibaba)
     - [Yidun](#yidun)
     - [Drag & Drop Captcha](#drag--drop-captcha)
+    - [Imperva (Incapsula)](#imperva-incapsula)
   - [Другие методы](#другие-методы)
     - [send / get_result](#send--get_result)
     - [Баланс](#баланс)
@@ -677,6 +678,29 @@ result = client.drag_drop({
   body: bodyStr,
   images: [image1Str, image2Str],
   textinstructions: "Drag the images to proper position"
+})
+```
+
+### Imperva (Incapsula)
+
+<sup>[Описание метода API](https://2captcha.com/2captcha-api#imperva)</sup>
+
+Основанный на cookies метод автоматизированного решения капчи Imperva (Incapsula). Параметры `incapsula_script_url` и `incapsula_cookies` генерируются динамически и могут отличаться при каждой загрузке страницы. Необязательно можно передать `reese84_url_endpoint`, если он нужен на конкретном сайте, и `userAgent` браузера, с которым открывается страница.
+
+В ответе приходят cookies для каждого домена в `request.domains` — их нужно передать на целевой сайт. Если в ответе пришёл `request.headers.User-Agent`, используйте тот же User-Agent в запросах к сайту.
+
+> [!IMPORTANT]
+> Для решения Imperva captcha необходимо использовать прокси. Рекомендуется использовать [резидентные прокси].
+
+```ruby
+result = client.imperva({
+  pageurl: "https://example.com/page-with-imperva",
+  incapsula_script_url: "/_Incapsula_Resource?SWUDNSAI=31&xinfo=1",
+  incapsula_cookies: "visid_incap_123456=sample; incap_ses_123_123456=sample",
+  reese84_url_endpoint: "https://example.com/_Incapsula_Resource?reese84=1",
+  userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+  proxytype: "http",
+  proxy: "proxyuser:strongPassword@123.123.123.123:3128"
 })
 ```
 
